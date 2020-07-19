@@ -1,0 +1,1 @@
+controller_joint_names: ['', 'soulder_base_joint', 'shoulder_forearm_joint', 'arm_forearm_joint', 'roll_arm_joint', 'yaw_roll_joint', 'pitch_yaw_joint', 'gripper_left_pitch', ]

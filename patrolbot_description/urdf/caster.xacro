@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="patrolbot">
+    <xacro:property name="ground_clearance" value="0.051" />
+    <xacro:property name="base_width" value="0.483" />
+    <xacro:property name="base_length" value="0.589" />
+    <xacro:property name="caster_mass" value="1" />
+    <xacro:property name="z_offset" value="${(0.378-ground_clearance)/2}" />
+    <xacro:macro name="caster_wheel" params="prefix parent *origin">
+        <link name="${prefix}_caster_wheel">
+            <collision>
+                <geometry>
+                    <mesh filename="package://patrolbot_description/meshes/caster.stl" />
+                </geometry>
+            </collision>
+            <visual>
+                <geometry>
+                    <mesh filename="package://patrolbot_description/meshes/caster.stl" />
+                </geometry>
+            </visual>
+            <inertial>
+                <mass value="${caster_mass}" />
+                <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+            </inertial>
+        </link>
+        <joint name="${prefix}_drive_wheel_joint" type="fixed">
+            <xacro:insert_block name="origin" />
+            <parent link="${parent}" />
+            <child link="${prefix}_caster_wheel" />
+        </joint>
+        <gazebo reference="${prefix}_caster_wheel">
+            <mu1 value="0.0001" />
+            <mu2 value="0.0001" />
+            <kp value="10000000.0" />
+            <kd value="1.0" />
+            <material>Gazebo/Grey</material>
+        </gazebo>
+    </xacro:macro>
+</robot>

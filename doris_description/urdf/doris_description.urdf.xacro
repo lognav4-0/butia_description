@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="doris">
+    <xacro:include filename="$(find patrolbot_description)/urdf/patrolbot.xacro" />
+    <xacro:include filename="$(find doris_arm_description)/urdf/doris_arm_description.urdf" />
+    <xacro:include filename="$(find doris_dorso_description)/urdf/doris_dorso_description.urdf" />
+    <!--xacro:include filename="$(find kinect2_description)/urdf/kinect2_description.urdf.xacro" /-->
+    <xacro:include filename="$(find doris_head_description)/urdf/doris_head.urdf" />
+    <xacro:include filename="$(find hector_sensors_description)/urdf/hokuyo_utm30lx.urdf.xacro" />
+    <xacro:include filename="$(find hector_sensors_description)/urdf/kinect_camera.urdf.xacro" />
+    <joint name="base_link_dorso" type="fixed">
+        <parent link="base_link" />
+        <child link="dorso_link" />
+        <origin xyz="-0.05 -0.01 ${base_height+0.9}" rpy="${3.1416/2} 0 3.1416" />
+    </joint>
+    <joint name="dorso_arm_base" type="fixed">
+        <parent link="dorso_link" />
+        <child link="arm_base_link" />
+        <origin xyz="-0.28 -0.4 0.08" rpy="${3.1416/2} 0 3.1416" />
+    </joint>
+    <xacro:sick_lms1xx />
+    <joint name="laser_joint" type="fixed">
+        <origin xyz="-0.28 -0.9 0.01" rpy="${3.1416/2} 0 3.1416" />
+        <parent link="dorso_link" />
+        <child link="laser" />
+    </joint>
+    <!--joint name="dorso_kinect" type="fixed">
+        <parent link="dorso_link" />
+        <child link="kinect_link" />
+        <origin xyz="-0.18 0 0.01" rpy="0 ${3.1416/2} 3.1416" />
+    </joint-->
+    <!--xacro:sensor_kinect prefix="" name="kinect" parent="dorso_link" cam_px="-0.18" cam_py="0" cam_pz="0.01" cam_or="${-3.1416/2}" cam_op="0" cam_oy="${3.1416/2}"></xacro:sensor_kinect-->
+    <xacro:kinect_camera name="kinect" parent="dorso_link">
+        <origin xyz="-0.2 0.025 0.01" rpy="${-3.1416/2} 3.1416 0" />
+    </xacro:kinect_camera>
+    <joint name="dorso_head" type="fixed">
+        <parent link="dorso_link" />
+        <child link="head_link" />
+        <origin xyz="-0.05 0.15 0.01" rpy="${3.1416/2} 0 3.1416" />
+    </joint>
+    <!--joint name="dorso_hokuyo" type="fixed">
+        <parent link="dorso_link" />
+        <child link="hokuyo_link" />
+        <origin xyz="-0.25 -0.7 0.01" rpy="${3.1416/2} ${-3.1416/2} 3.1416" />
+    </joint-->
+    <xacro:hokuyo_utm30lx name="hokuyo" parent="dorso_link" ros_topic="hokuyo/scan" update_rate="40" ray_count="1000" min_angle="0" max_angle="-180">
+        <origin xyz="-0.25 -0.7 0.01" rpy="${3.1416/2} ${-3.1416/2} 3.1416" />
+    </xacro:hokuyo_utm30lx>
+</robot>

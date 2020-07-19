@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="patrolbot">
+    <xacro:property name="wheel_radius" value="0.201" />
+    <xacro:property name="wheel_width" value="0.05" />
+    <xacro:property name="wheel_mass" value="1" />
+    <xacro:property name="ground_clearance" value="0.051" />
+    <xacro:property name="wheel_center_distance_y" value="0.147" />
+    <xacro:property name="wheel_center_distance_x" value="${0.137/2}" />
+    <xacro:macro name="drive_wheel" params="prefix parent *origin">
+        <link name="${prefix}_drive_wheel">
+            <collision>
+                <geometry>
+                    <mesh filename="package://patrolbot_description/meshes/${prefix}_wheel.stl" />
+                </geometry>
+            </collision>
+            <visual>
+                <geometry>
+                    <mesh filename="package://patrolbot_description/meshes/${prefix}_wheel.stl" />
+                </geometry>
+            </visual>
+            <inertial>
+                <mass value="${wheel_mass}" />
+                <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+            </inertial>
+        </link>
+        <joint name="${prefix}_drive_wheel_joint" type="continuous">
+            <parent link="${parent}" />
+            <child link="${prefix}_drive_wheel" />
+            <xacro:insert_block name="origin" />
+            <axis xyz="0 1 0" />
+            <dynamics damping="0" friction="0" />
+        </joint>
+        <transmission name="${prefix}_drive_wheel_trans">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="${prefix}_drive_wheel_joint">
+                <hardwareInterface>EffortJointInterface</hardwareInterface>
+            </joint>
+            <actuator name="${prefix}_drive_wheel_motor">
+                <mechanicalReducation>1</mechanicalReducation>
+            </actuator>
+        </transmission>
+        <gazebo reference="${prefix}_drive_wheel">
+            <mu1 value="200.0" />
+            <mu2 value="100.0" />
+            <kp value="10000000.0" />
+            <kd value="1.0" />
+            <material>Gazebo/DarkGray</material>
+        </gazebo>
+    </xacro:macro>
+</robot>

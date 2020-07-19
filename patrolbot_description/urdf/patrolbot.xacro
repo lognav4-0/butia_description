@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="patrolbot">
+    <xacro:property name="base_width" value="0.483" />
+    <xacro:property name="base_length" value="0.589" />
+    <xacro:property name="wheel_radius" value="0.201" />
+    <xacro:property name="wheel_center_distance_y" value="0.147" />
+    <xacro:property name="ground_clearance" value="0.051" />
+    <xacro:property name="base_height" value="${0.378-ground_clearance}" />
+    <xacro:property name="z_offset" value="${(0.378-ground_clearance)/2}" />
+    <xacro:include filename="$(find patrolbot_description)/urdf/wheel.xacro" />
+    <xacro:include filename="$(find patrolbot_description)/urdf/caster.xacro" />
+    <xacro:include filename="$(find lms1xx)/urdf/sick_lms1xx.urdf.xacro" />
+    <link name="base_footprint">
+    </link>
+    <joint name="base_footprint_joint" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0" />
+        <parent link="base_footprint" />
+        <child link="base_link" />
+    </joint>
+    <link name="base_link">
+        <inertial>
+            <mass value="50.0" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.001" ixy="0.0" ixz="0.001" iyy="1" iyz="0.0" izz="0.001" />
+        </inertial>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://patrolbot_description/meshes/hull.stl" />
+            </geometry>
+        </collision>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://patrolbot_description/meshes/hull.stl" />
+            </geometry>
+        </visual>
+    </link>
+    <xacro:drive_wheel prefix="right" parent="base_link">
+        <origin xyz="${wheel_center_distance_x} ${-wheel_center_distance_y} ${-z_offset+ground_clearance/2}" />
+    </xacro:drive_wheel>
+    <xacro:drive_wheel prefix="left" parent="base_link">
+        <origin xyz="${wheel_center_distance_x} ${wheel_center_distance_y} ${-z_offset+ground_clearance/2}" />
+    </xacro:drive_wheel>
+    <xacro:caster_wheel prefix="front" parent="base_link">
+        <origin xyz="${base_length/2-0.05} 0 ${-z_offset-0.01}" />
+    </xacro:caster_wheel>
+    <xacro:caster_wheel prefix="back_left" parent="base_link">
+        <origin xyz="${-base_length/2+0.05} ${-base_width/3+0.05} ${-z_offset-0.01}" />
+    </xacro:caster_wheel>
+    <xacro:caster_wheel prefix="back_right" parent="base_link">
+        <origin xyz="${-base_length/2+0.05} ${base_width/3-0.05} ${-z_offset-0.01}" />
+    </xacro:caster_wheel>
+    <!--xacro:sick_lms1xx />
+    <joint name="laser_joint" type="fixed" >
+        <origin xyz="${base_length/2-0.05-(0.105/2)} 0 ${base_height/2+0.075+ground_clearance}" rpy="0 0 0" />
+        <parent link="base_link" />
+        <child link="laser" />
+    </joint-->
+    <gazebo>
+        <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+
+            <!-- Plugin update rate in Hz -->
+            <updateRate>50</updateRate>
+
+            <!-- Name of left joint, defaults to `left_joint` -->
+            <leftJoint>left_drive_wheel_joint</leftJoint>
+
+            <!-- Name of right joint, defaults to `right_joint` -->
+            <rightJoint>right_drive_wheel_joint</rightJoint>
+
+            <!-- The distance from the center of one wheel to the other, in meters, defaults to 0.34 m -->
+            <wheelSeparation>${2*wheel_center_distance_y}</wheelSeparation>
+
+            <!-- Diameter of the wheels, in meters, defaults to 0.15 m -->
+            <wheelDiameter>${2*wheel_radius}</wheelDiameter>
+
+            <!-- Wheel acceleration, in rad/s^2, defaults to 0.0 rad/s^2 -->
+            <wheelAcceleration>0.0</wheelAcceleration>
+
+            <!-- Maximum torque which the wheels can produce, in Nm, defaults to 5 Nm -->
+            <wheelTorque>120</wheelTorque>
+
+            <!-- Topic to receive geometry_msgs/Twist message commands, defaults to `cmd_vel` -->
+            <commandTopic>cmd_vel</commandTopic>
+
+            <!-- Topic to publish nav_msgs/Odometry messages, defaults to `odom` -->
+            <odometryTopic>odom</odometryTopic>
+
+            <!-- Odometry frame, defaults to `odom` -->
+            <odometryFrame>odom</odometryFrame>
+
+            <!-- Robot frame to calculate odometry from, defaults to `base_footprint` -->
+            <robotBaseFrame>base_footprint</robotBaseFrame>
+
+            <!-- Odometry source, 0 for ENCODER, 1 for WORLD, defaults to WORLD -->
+            <odometrySource>1</odometrySource>
+
+            <!-- Set to true to publish transforms for the wheel links, defaults to false -->
+            <publishWheelTF>true</publishWheelTF>
+
+            <!-- Set to true to publish transforms for the odometry, defaults to true -->
+            <publishOdom>true</publishOdom>
+
+            <!-- Set to true to publish sensor_msgs/JointState on /joint_states for the wheel joints, defaults to false -->
+            <publishWheelJointState>true</publishWheelJointState>
+
+            <!-- Set to true to swap right and left wheels, defaults to true -->
+            <legacyMode>false</legacyMode>
+        </plugin>
+    </gazebo>
+    <gazebo reference="base_link">
+        <material>Gazebo/Gray</material>
+    </gazebo>
+</robot>

@@ -1,0 +1,5 @@
+/**
+ \mainpage
+ \htmlinclude manifest.html
+ \b This package contains URDF description files for the Patrolbot mobile base.
+**/
