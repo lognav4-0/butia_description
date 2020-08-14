@@ -29,8 +29,8 @@
         <origin xyz="-0.18 0 0.01" rpy="0 ${3.1416/2} 3.1416" />
     </joint-->
     <!--xacro:sensor_kinect prefix="" name="kinect" parent="dorso_link" cam_px="-0.18" cam_py="0" cam_pz="0.01" cam_or="${-3.1416/2}" cam_op="0" cam_oy="${3.1416/2}"></xacro:sensor_kinect-->
-    <xacro:kinect_camera name="kinect" parent="dorso_link">
-        <origin xyz="-0.2 0.025 0.01" rpy="${-3.1416/2} 3.1416 0" />
+    <xacro:kinect_camera name="kinect2" parent="dorso_link">
+        <origin xyz="-0.25 0.025 0.01" rpy="${-3.1416/2} 3.1416 0" />
     </xacro:kinect_camera>
     <joint name="dorso_head" type="fixed">
         <parent link="dorso_link" />
@@ -42,7 +42,7 @@
         <child link="hokuyo_link" />
         <origin xyz="-0.25 -0.7 0.01" rpy="${3.1416/2} ${-3.1416/2} 3.1416" />
     </joint-->
-    <xacro:hokuyo_utm30lx name="hokuyo" parent="dorso_link" ros_topic="hokuyo/scan" update_rate="40" ray_count="1000" min_angle="0" max_angle="-180">
+    <xacro:hokuyo_utm30lx name="hokuyo" parent="dorso_link" ros_topic="hokuyo/scan" update_rate="30" ray_count="500" min_angle="0" max_angle="-180">
         <origin xyz="-0.25 -0.7 0.01" rpy="${3.1416/2} ${-3.1416/2} 3.1416" />
     </xacro:hokuyo_utm30lx>
 </robot>

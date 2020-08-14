@@ -79,7 +79,7 @@
             <wheelAcceleration>0.0</wheelAcceleration>
 
             <!-- Maximum torque which the wheels can produce, in Nm, defaults to 5 Nm -->
-            <wheelTorque>120</wheelTorque>
+            <wheelTorque>240</wheelTorque>
 
             <!-- Topic to receive geometry_msgs/Twist message commands, defaults to `cmd_vel` -->
             <commandTopic>cmd_vel</commandTopic>
