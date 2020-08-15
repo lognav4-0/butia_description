@@ -2,5 +2,9 @@
     <include file="$(find gazebo_ros)/launch/empty_world.launch" />
     <param name="robot_description" command="$(find xacro)/xacro $(find doris_description)/urdf/doris_description.urdf.xacro" />
     <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model doris" output="screen" />
-    <node name="fake_joint_calibration" pkg="rostopic" type="rostopic" args="pub /calibrated std_msgs/Bool true" />
+    <!-- Load joint controller configurations from YAML file to parameter server -->
+    <rosparam file="$(find doris_description)/config/ros_controllers.yaml" command="load" />
+
+    <!-- Load the controllers -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="arm_effort_controller gripper_effort_controller joint_state_controller" />
 </launch>
