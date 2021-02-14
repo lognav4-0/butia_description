@@ -11,8 +11,7 @@
             <geometry>
                 <mesh filename="package://doris_head_description/meshes/animatronicFace.stl" scale="0.001 0.001 0.001" />
             </geometry>
-            <material name="">
-                <color rgba="0.79216 0.81961 0.93333 1" />
+            <material name="gray_material">
             </material>
         </visual>
         <collision>

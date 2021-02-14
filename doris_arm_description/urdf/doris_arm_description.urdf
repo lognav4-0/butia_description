@@ -1,543 +1,288 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
-     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
-<robot
-  name="doris_arm_description">
-  <link
-    name="arm_base_link">
+<robot name="doris_arm_description">
+  <link name="arm_base_link">
     <inertial>
-      <origin
-        xyz="-0.021825 -0.065106 -0.0077629"
-        rpy="0 0 0" />
-      <mass
-        value="0.086496" />
-      <inertia
-        ixx="0.001"
-        ixy="0"
-        ixz="0"
-        iyy="0.001"
-        iyz="0"
-        izz="0.001" />
+      <origin xyz="0.0032335 -3.6289E-06 0.02346" rpy="0 0 0" />
+      <mass value="0.086496" />
+      <inertia ixx="2.3059E-05" ixy="1.641E-09" ixz="-1.0628E-06" iyy="4.136E-05" iyz="-2.3103E-09" izz="3.2692E-05" />
     </inertial>
     <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://doris_arm_description/meshes/arm_base_link.STL" />
+        <mesh filename="package://doris_arm_description/meshes/arm_base_link.STL" />
       </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.79216 0.81961 0.93333 1" />
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://doris_arm_description/meshes/arm_base_link.STL" />
+        <mesh filename="package://doris_arm_description/meshes/arm_base_link.STL" />
       </geometry>
     </collision>
   </link>
-  <link
-    name="shoulder_link">
+  <link name="shoulder_link">
     <inertial>
-      <origin
-        xyz="1.8002E-06 0.046991 1.028E-05"
-        rpy="0 0 0" />
-      <mass
-        value="0.18737" />
-      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+      <origin xyz="1.80019426116503E-06 0.0469908207821207 1.02798098779305E-05" rpy="0 0 0" />
+      <mass value="0.187371975468428" />
+      <inertia ixx="9.67030340377893E-05" ixy="2.4150387752157E-12" ixz="4.62672389438557E-09" iyy="6.1510621044743E-05" iyz="7.92925862950938E-12" izz="6.80166975361327E-05" />
     </inertial>
     <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://doris_arm_description/meshes/shoulder_link.STL" />
+        <mesh filename="package://doris_arm_description/meshes/shoulder_link.STL" />
       </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.79216 0.81961 0.93333 1" />
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://doris_arm_description/meshes/shoulder_link.STL" />
+        <mesh filename="package://doris_arm_description/meshes/shoulder_link.STL" />
       </geometry>
     </collision>
   </link>
-  <joint
-    name="soulder_base_joint"
-    type="continuous">
-    <origin
-      xyz="-0.0060974 -0.065103 0.017777"
-      rpy="1.5708 0 0" />
-    <parent
-      link="arm_base_link" />
-    <child
-      link="shoulder_link" />
-    <axis
-      xyz="0 1 0" />
-    <dynamics friction="10.0" damping="0.0" />
+  <joint name="shoulder_joint" type="continuous">
+    <origin xyz="0.018961 0 0.049" rpy="1.5708 0 0" />
+    <parent link="arm_base_link" />
+    <child link="shoulder_link" />
+    <axis xyz="0 1 0" />
+    <limit effort="10.6" velocity="6.28" />
   </joint>
-  <link
-    name="forearm_link">
+  <link name="forearm_link">
     <inertial>
-      <origin
-        xyz="-1.0864E-05 0.14596 0.0042843"
-        rpy="0 0 0" />
-      <mass
-        value="0.073149" />
-      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+      <origin xyz="-1.08638707938674E-05 0.145957509942709 0.00428434606455026" rpy="0 0 0" />
+      <mass value="0.0731491894717436" />
+      <inertia ixx="0.00041066540204533" ixy="-8.83711845735471E-13" ixz="6.82686577821298E-14" iyy="4.65670049898224E-05" iyz="5.99306396840699E-05" izz="0.000406035632117776" />
     </inertial>
     <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://doris_arm_description/meshes/forearm_link.STL" />
+        <mesh filename="package://doris_arm_description/meshes/forearm_link.STL" />
       </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.79216 0.81961 0.93333 1" />
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://doris_arm_description/meshes/forearm_link.STL" />
+        <mesh filename="package://doris_arm_description/meshes/forearm_link.STL" />
       </geometry>
     </collision>
   </link>
-  <joint
-    name="shoulder_forearm_joint"
-    type="continuous">
-    <origin
-      xyz="0 0.0656 0"
-      rpy="2.0 1.5708 0" />
-    <parent
-      link="shoulder_link" />
-    <child
-      link="forearm_link" />
-    <axis
-      xyz="1 0 0" />
-    <dynamics friction="10.0" damping="0.0" />
+  <joint name="forearm_shoulder_joint" type="continuous">
+    <origin xyz="0 0.0656 0" rpy="0.93003 1.5708 -0.7" />
+    <parent link="shoulder_link" />
+    <child link="forearm_link" />
+    <axis xyz="1 0 0" />
+    <limit effort="21.2" velocity="6.28" />
   </joint>
-  <link
-    name="arm_link">
+  <link name="elbow_link">
     <inertial>
-      <origin
-        xyz="6.8348E-05 -0.044602 -0.0064606"
-        rpy="0 0 0" />
-      <mass
-        value="0.1633" />
-      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+      <origin xyz="-3.11104449999267E-05 -0.0168263295023695 0.000457294178247414" rpy="0 0 0" />
+      <mass value="0.0892046248471317" />
+      <inertia ixx="4.19114884689815E-05" ixy="7.60313851177211E-09" ixz="2.31004133361254E-09" iyy="2.38301704178671E-05" iyz="-1.0628369231195E-06" izz="3.29468296689027E-05" />
     </inertial>
     <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://doris_arm_description/meshes/arm_link.STL" />
+        <mesh filename="package://doris_arm_description/meshes/elbow_link.STL" />
       </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.79216 0.81961 0.93333 1" />
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://doris_arm_description/meshes/arm_link.STL" />
+        <mesh filename="package://doris_arm_description/meshes/elbow_link.STL" />
       </geometry>
     </collision>
   </link>
-  <joint
-    name="arm_forearm_joint"
-    type="continuous">
-    <origin
-      xyz="0 0.30821 -0.040455"
-      rpy="1.5708 -0.74886 -1.5708" />
-    <parent
-      link="forearm_link" />
-    <child
-      link="arm_link" />
-    <axis
-      xyz="0 0 1" />
-    <dynamics friction="10.0" damping="0.0" />
+  <joint name="elbow_joint" type="continuous">
+    <origin xyz="0 0.30821 -0.040455" rpy="1.5708 -0.74886 -1.5708" />
+    <parent link="forearm_link" />
+    <child link="elbow_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="10.6" velocity="6.28" />
   </joint>
-  <link
-    name="roll_link">
+  <link name="roll_link">
     <inertial>
-      <origin
-        xyz="2.4999E-07 0.025907 2.5658E-07"
-        rpy="0 0 0" />
-      <mass
-        value="0.034548" />
-      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+      <origin xyz="1.19120197594746E-08 -0.010083697233814 -0.0945595691856148" rpy="0 0 0" />
+      <mass value="0.108644948048519" />
+      <inertia ixx="5.28153270287721E-05" ixy="-1.47234666202985E-09" ixz="1.52885572695569E-09" iyy="5.77906922347199E-05" iyz="-3.14860619233111E-07" izz="4.90755786683178E-05" />
     </inertial>
     <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://doris_arm_description/meshes/roll_link.STL" />
+        <mesh filename="package://doris_arm_description/meshes/roll_link.STL" />
       </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.79216 0.81961 0.93333 1" />
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://doris_arm_description/meshes/roll_link.STL" />
+        <mesh filename="package://doris_arm_description/meshes/roll_link.STL" />
       </geometry>
     </collision>
   </link>
-  <joint
-    name="roll_arm_joint"
-    type="continuous">
-    <origin
-      xyz="0 -0.10408 1.0864E-05"
-      rpy="3.1416 -0.012731 0" />
-    <parent
-      link="arm_link" />
-    <child
-      link="roll_link" />
-    <axis
-      xyz="0 1 0" />
-    <dynamics friction="10.0" damping="0.0" />
+  <joint name="roll_joint" type="continuous">
+    <origin xyz="0 0 0" rpy="1.5708 0.012731 3.1416" />
+    <parent link="elbow_link" />
+    <child link="roll_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="6.4" velocity="6.28" />
   </joint>
-  <link
-    name="yaw_link">
+  <link name="yaw_link">
     <inertial>
-      <origin
-        xyz="4.0552E-05 -0.016021 -0.00018974"
-        rpy="0 0 0" />
-      <mass
-        value="0.076806" />
-      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+      <origin xyz="4.05516357848967E-05 -0.0160211563366842 -0.000189877443412478" rpy="0 0 0" />
+      <mass value="0.0768058991199202" />
+      <inertia ixx="3.18297346758585E-05" ixy="-1.07008585036491E-08" ixz="1.50571425102129E-09" iyy="1.87354285358259E-05" iyz="-3.14989775620194E-07" izz="2.57575103945061E-05" />
     </inertial>
     <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://doris_arm_description/meshes/yaw_link.STL" />
+        <mesh filename="package://doris_arm_description/meshes/yaw_link.STL" />
       </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.79216 0.81961 0.93333 1" />
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://doris_arm_description/meshes/yaw_link.STL" />
+        <mesh filename="package://doris_arm_description/meshes/yaw_link.STL" />
       </geometry>
     </collision>
   </link>
-  <joint
-    name="yaw_roll_joint"
-    type="continuous">
-    <origin
-      xyz="0 0.061919 0"
-      rpy="3.1416 1.5708 0" />
-    <parent
-      link="roll_link" />
-    <child
-      link="yaw_link" />
-    <axis
-      xyz="0 0 1" />
-    <dynamics friction="10.0" damping="0.0" />
+  <joint name="yaw_joint" type="continuous">
+    <origin xyz="0 0 -0.166" rpy="1.5708 0 1.5708" />
+    <parent link="roll_link" />
+    <child link="yaw_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="6.4" velocity="6.28" />
   </joint>
-  <link
-    name="pitch_link">
+  <link name="roll_2_link">
     <inertial>
-      <origin
-        xyz="-0.00010854 0.0061332 0.0055683"
-        rpy="0 0 0" />
-      <mass
-        value="0.16903" />
-      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+      <origin xyz="3.30999898656703E-07 -0.0146248804164249 0.0456383476057014" rpy="0 0 0" />
+      <mass value="0.15161780969895" />
+      <inertia ixx="6.28798955908907E-05" ixy="-2.94885470174372E-09" ixz="3.0462710061277E-09" iyy="3.67182700275411E-05" iyz="-6.30008633893171E-07" izz="5.20407281608922E-05" />
     </inertial>
     <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://doris_arm_description/meshes/pitch_link.STL" />
+        <mesh filename="package://doris_arm_description/meshes/roll_2_link.STL" />
       </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.79216 0.81961 0.93333 1" />
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://doris_arm_description/meshes/pitch_link.STL" />
+        <mesh filename="package://doris_arm_description/meshes/roll_2_link.STL" />
       </geometry>
     </collision>
   </link>
-  <joint
-    name="pitch_yaw_joint"
-    type="continuous">
-    <origin
-      xyz="-0.007 -0.1005 -0.00015024"
-      rpy="-1.4266 -1.5708 2.9857" />
-    <parent
-      link="yaw_link" />
-    <child
-      link="pitch_link" />
-    <axis
-      xyz="0 0 1" />
-    <dynamics friction="10.0" damping="0.0" />
+  <joint name="roll_2_joint" type="continuous">
+    <origin xyz="0 -0.054822 -0.00015038" rpy="1.3649 1.5708 -0.2119" />
+    <parent link="yaw_link" />
+    <child link="roll_2_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="6.4" velocity="6.28" />
   </joint>
-  <link
-    name="gripper_left">
+  <link name="gripper_link">
     <inertial>
-      <origin
-        xyz="-2.5501E-07 -0.0020883 0.03999"
-        rpy="0 0 0" />
-      <mass
-        value="0.0083226" />
-      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+      <origin xyz="0.0230127657229507 0.000126473527769386 0.00158449770655011" rpy="0 0 0" />
+      <mass value="0.0174078384350788" />
+      <inertia ixx="2.9772593568185E-06" ixy="-9.76614241037084E-11" ixz="-1.36056666866806E-20" iyy="1.55361628780027E-05" iyz="6.90655615792231E-22" izz="1.79049683506685E-05" />
     </inertial>
     <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://doris_arm_description/meshes/gripper_left.STL" />
+        <mesh filename="package://doris_arm_description/meshes/gripper_link.STL" />
       </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.79216 0.81961 0.93333 1" />
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://doris_arm_description/meshes/gripper_left.STL" />
+        <mesh filename="package://doris_arm_description/meshes/gripper_link.STL" />
       </geometry>
     </collision>
   </link>
-  <joint
-    name="gripper_left_pitch"
-    type="continuous">
-    <origin
-      xyz="0.060012 -0.007764 0.057513"
-      rpy="-0.36234 0 1.5581" />
-    <parent
-      link="pitch_link" />
-    <child
-      link="gripper_left" />
-    <axis
-      xyz="1 0 0" />
-    <dynamics friction="10.0" damping="0.0" />
+  <joint name="gripper_joint" type="fixed">
+    <origin xyz="-0.021958 0.00027834 0.10168" rpy="3.1416 0 -0.012731" />
+    <parent link="roll_2_link" />
+    <child link="gripper_link" />
+    <axis xyz="0 0 0" />
   </joint>
-  <link
-    name="gripper_right">
+  <link name="left_finger_link">
     <inertial>
-      <origin
-        xyz="-2.5548E-07 0.012365 0.038088"
-        rpy="0 0 0" />
-      <mass
-        value="0.0083226" />
-      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+      <origin xyz="-2.5501E-07 -0.0020883 0.03999" rpy="0 0 0" />
+      <mass value="0.0083226" />
+      <inertia ixx="6.7417E-06" ixy="4.9528E-11" ixz="-8.9754E-11" iyy="9.1481E-06" iyz="-1.8643E-07" izz="3.3477E-06" />
     </inertial>
     <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://doris_arm_description/meshes/gripper_right.STL" />
+        <mesh filename="package://doris_arm_description/meshes/left_finger_link.STL" />
       </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.79216 0.81961 0.93333 1" />
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
       </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://doris_arm_description/meshes/gripper_right.STL" />
+        <mesh filename="package://doris_arm_description/meshes/left_finger_link.STL" />
       </geometry>
     </collision>
   </link>
-  <joint
-    name="gripper_right_pitch"
-    type="continuous">
-    <origin
-      xyz="-0.060012 -0.006236 0.057513"
-      rpy="0.0037509 0 -1.5835" />
-    <parent
-      link="pitch_link" />
-    <child
-      link="gripper_right" />
-    <axis
-      xyz="1 0 0" />
-    <dynamics friction="10.0" damping="0.0" />
+  <joint name="left_finger_joint" type="continuous">
+    <origin xyz="-0.038057 0 -0.0015128" rpy="2.7793 0 1.5708" />
+    <parent link="gripper_link" />
+    <child link="left_finger_link" />
+    <axis xyz="1 0 0" />
+    <limit effort="3.2" velocity="6.28" />
   </joint>
-  <transmission name="trans_soulder_base_joint">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="soulder_base_joint">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="soulder_base_joint_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
-  <transmission name="trans_shoulder_forearm_joint">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="shoulder_forearm_joint">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="shoulder_forearm_joint_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
-  <transmission name="trans_arm_forearm_joint">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="arm_forearm_joint">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="arm_forearm_joint_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
-  <transmission name="trans_roll_arm_joint">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="roll_arm_joint">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="roll_arm_joint_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
-  <transmission name="trans_yaw_roll_joint">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="yaw_roll_joint">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="yaw_roll_joint_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
-  <transmission name="trans_pitch_yaw_joint">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="pitch_yaw_joint">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="pitch_yaw_joint_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
-  <transmission name="trans_gripper_left_pitch">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="gripper_left_pitch">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="gripper_left_pitch_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
-  <transmission name="trans_gripper_right_pitch">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="gripper_right_pitch">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="gripper_right_pitch_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
-  <gazebo>
-    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <robotNamespace>/</robotNamespace>
-    </plugin>
-  </gazebo>
-  <gazebo reference="arm_base_link">
-    <material>Gazebo/DarkGray</material>
-  </gazebo>
-  <gazebo reference="shoulder_link">
-    <material>Gazebo/DarkGray</material>
-  </gazebo>
-  <gazebo reference="forearm_link">
-    <material>Gazebo/DarkGray</material>
-  </gazebo>
-  <gazebo reference="arm_link">
-    <material>Gazebo/DarkGray</material>
-  </gazebo>
-  <gazebo reference="roll_link">
-    <material>Gazebo/DarkGray</material>
-  </gazebo>
-  <gazebo reference="yaw_link">
-    <material>Gazebo/DarkGray</material>
-  </gazebo>
-  <gazebo reference="pitch_link">
-    <material>Gazebo/DarkGray</material>
-  </gazebo>
-  <gazebo reference="gripper_left">
-    <material>Gazebo/Gray</material>
-  </gazebo>
-  <gazebo reference="gripper_right">
-    <material>Gazebo/Gray</material>
-  </gazebo>
+  <link name="right_finger_link">
+    <inertial>
+      <origin xyz="-2.55484871550249E-07 0.0123652457374703 0.0380876079681996" rpy="0 0 0" />
+      <mass value="0.00832263335631547" />
+      <inertia ixx="6.74172247293139E-06" ixy="1.41443390446518E-11" ixz="-1.01493727185514E-10" iyy="8.28022035597717E-06" iyz="-2.07740904577141E-06" izz="4.21561599047209E-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://doris_arm_description/meshes/right_finger_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://doris_arm_description/meshes/right_finger_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_finger_joint" type="continuous">
+    <origin xyz="0.081977 0 -0.0015128" rpy="-3.1378 0 -1.5708" />
+    <parent link="gripper_link" />
+    <child link="right_finger_link" />
+    <axis xyz="-1 0 0" />
+    <limit effort="3.2" velocity="6.28" />
+  </joint>
 </robot>
