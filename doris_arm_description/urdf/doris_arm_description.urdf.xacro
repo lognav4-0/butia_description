@@ -54,7 +54,7 @@
     <child link="shoulder_link" />
     <axis xyz="0 1 0" />
     <limit effort="${8.4*0.2*reduction}" velocity="${6.28/reduction}" />
-    <dynamics damping="0.5" friction="0.0"/>
+    <dynamics damping="0.7" friction="1.0"/>
   </joint>
   <link name="forearm_link">
     <inertial>
@@ -84,7 +84,7 @@
     <child link="forearm_link" />
     <axis xyz="1 0 0" />
     <limit effort="${2*8.4*0.2*reduction}" velocity="${6.28/reduction}" />
-    <dynamics damping="0.5" friction="0.0"/>
+    <dynamics damping="0.7" friction="1.0"/>
   </joint>
   <link name="elbow_link">
     <inertial>
@@ -115,7 +115,7 @@
     <child link="elbow_link" />
     <axis xyz="0 0 1" />
     <limit effort="${8.4*0.2*reduction}" velocity="${6.28/reduction}" />
-    <dynamics damping="0.5" friction="0.0"/>
+    <dynamics damping="0.7" friction="1.0"/>
   </joint>
   <link name="roll_link">
     <inertial>
@@ -146,7 +146,7 @@
     <child link="roll_link" />
     <axis xyz="0 0 1" />
     <limit effort="${6.0*0.2*reduction}" velocity="${6.28/reduction}" />
-    <dynamics damping="0.5" friction="0.0"/>
+    <dynamics damping="0.7" friction="1.0"/>
   </joint>
   <link name="yaw_link">
     <inertial>
@@ -177,7 +177,7 @@
     <child link="yaw_link" />
     <axis xyz="0 0 1" />
     <limit effort="${6.0*0.2*reduction}" velocity="${6.28/reduction}" />
-    <dynamics damping="0.5" friction="0.0"/>
+    <dynamics damping="0.7" friction="1.0"/>
   </joint>
   <link name="roll_2_link">
     <inertial>
@@ -208,7 +208,7 @@
     <child link="roll_2_link" />
     <axis xyz="0 0 1" />
     <limit effort="${6.0*0.2*reduction}" velocity="${6.28/reduction}" />
-    <dynamics damping="0.5" friction="0.0"/>
+    <dynamics damping="0.7" friction="1.0"/>
   </joint>
   <link name="gripper_link">
     <inertial>
@@ -268,7 +268,7 @@
     <child link="left_finger_link" />
     <axis xyz="1 0 0" />
     <limit effort="${6.0*0.2*reduction/2}" velocity="${6.28/reduction}" />
-    <dynamics damping="0.5" friction="0.0"/>
+    <dynamics damping="0.7" friction="1.0"/>
   </joint>
   <link name="right_finger_link">
     <inertial>
@@ -299,6 +299,6 @@
     <child link="right_finger_link" />
     <axis xyz="-1 0 0" />
     <limit effort="${6.0*0.2*reduction/2}" velocity="${6.28/reduction}" />
-    <dynamics damping="0.5" friction="0.0"/>
+    <dynamics damping="0.7" friction="1.0"/>
   </joint>
 </robot>
