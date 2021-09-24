@@ -94,8 +94,8 @@
         <child link="hokuyo_link" />
         <origin xyz="-0.25 -0.7 0.01" rpy="${3.1416/2} ${-3.1416/2} 3.1416" />
     </joint-->
-    <xacro:hokuyo_utm30lx name="hokuyo" parent="base_link" ros_topic="hokuyo/scan" update_rate="30" ray_count="500" min_angle="0" max_angle="-180">
-        <origin xyz="0.35 0 0.1" rpy="0 0 0" />
+    <xacro:hokuyo_utm30lx name="hokuyo" parent="base_link" ros_topic="scan2" update_rate="30" ray_count="500" min_angle="0" max_angle="-180">
+        <origin xyz="0.35 0 0.01" rpy="3.14 0 0" />
     </xacro:hokuyo_utm30lx>
     <transmission name="trans_left_wheel_joint">
         <type>transmission_interface/SimpleTransmission</type>
