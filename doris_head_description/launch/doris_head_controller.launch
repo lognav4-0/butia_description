@@ -13,13 +13,13 @@
     left_vertical_eyebrow_joint_position_controller 
     right_rotacional_eyebrow_joint_position_controller 
     left_rotacional_eyebrow_joint_position_controller 
-    rigth_superior_eyelid_joint_position_controller 
+    right_superior_eyelid_joint_position_controller 
     left_superior_eyelid_joint_position_controller 
-    rigth_inferior_eyelid_joint_position_controller 
+    right_inferior_eyelid_joint_position_controller 
     left_inferior_eyelid_joint_position_controller 
-    rigth_eye_horizontal_joint_position_controller 
+    right_eye_horizontal_joint_position_controller 
     left_eye_horizontal_joint_position_controller 
-    rigth_eye_vertical_joint_position_controller 
+    right_eye_vertical_joint_position_controller 
     left_eye_vertical_joint_position_controller  
     joint_state_controller"/>
 

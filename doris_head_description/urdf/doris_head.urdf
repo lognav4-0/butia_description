@@ -145,7 +145,7 @@
       </inertial>
     </link>
 
-    <link name="rigth_eye_horizontal_link">
+    <link name="right_eye_horizontal_link">
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <mass value="0.001"/>
@@ -153,7 +153,7 @@
       </inertial>
     </link>
 
-    <link name="rigth_eye_vertical_link">
+    <link name="right_eye_vertical_link">
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <mass value="0.001"/>
@@ -168,13 +168,13 @@
       </visual>
     </link>
 
-    <link name="rigth_inferior_eyelid_link">
+    <link name="right_inferior_eyelid_link">
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <mass value="0.001"/>
         <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
       </inertial>
-      <visual name="rigth_inferior_eyelid">
+      <visual name="right_inferior_eyelid">
         <origin xyz="0.0038 -0.01141 -0.01966" rpy="-1.5708 0 0"/>
         <geometry>
           <mesh filename="package://rosto_teste/meshes/dae/Plane.013.dae" scale="0.001 0.001 0.001"/>
@@ -183,7 +183,7 @@
       </visual>
     </link>
 
-    <link name="rigth_superior_eyelid_link">
+    <link name="right_superior_eyelid_link">
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <mass value="0.001"/>
@@ -286,34 +286,34 @@
       <limit lower="0" upper="0.02" effort="6.5" velocity="1000"/>
     </joint>
 
-    <joint name="rigth_eye_horizontal_joint" type="revolute">
+    <joint name="right_eye_horizontal_joint" type="revolute">
       <origin xyz="0.09352 -0.08739 0.01605" rpy="1.5708 0 0"/>
       <parent link="head_link"/>
-      <child link="rigth_eye_horizontal_link"/>
+      <child link="right_eye_horizontal_link"/>
       <axis xyz="0 0 1.0"/>
       <limit lower="-0.27453" upper="0.4" effort="6.5" velocity="1000"/>
     </joint>
 
-    <joint name="rigth_eye_vertical_joint" type="revolute">
+    <joint name="right_eye_vertical_joint" type="revolute">
       <origin xyz="0 0 0" rpy="1.5708 0 0"/>
-      <parent link="rigth_eye_horizontal_link"/>
-      <child link="rigth_eye_vertical_link"/>
+      <parent link="right_eye_horizontal_link"/>
+      <child link="right_eye_vertical_link"/>
       <axis xyz="0 0 1.0"/>
       <limit lower="-0.2" upper="0.7854" effort="6.5" velocity="1000"/>
     </joint>
 
-    <joint name="rigth_inferior_eyelid_joint" type="revolute">
+    <joint name="right_inferior_eyelid_joint" type="revolute">
       <origin xyz="0.09188 -0.08649 -0.00398" rpy="-3.14159 0 0"/>
       <parent link="head_link"/>
-      <child link="rigth_inferior_eyelid_link"/>
+      <child link="right_inferior_eyelid_link"/>
       <axis xyz="0 0 1.0"/>
       <limit lower="-0.17" upper="0.7854" effort="6.5" velocity="1000"/>
     </joint>
 
-    <joint name="rigth_superior_eyelid_joint" type="revolute">
+    <joint name="right_superior_eyelid_joint" type="revolute">
       <origin xyz="0.09073 -0.08626 0.03037" rpy="0 0 0"/>
       <parent link="head_link"/>
-      <child link="rigth_superior_eyelid_link"/>
+      <child link="right_superior_eyelid_link"/>
       <axis xyz="0 0 1.0"/>
       <limit lower="-0.4" upper="0.17" effort="6.5" velocity="1000"/>
     </joint>
@@ -405,7 +405,7 @@
 
   <transmission name="tran8">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="rigth_superior_eyelid_joint">
+    <joint name="right_superior_eyelid_joint">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor8">
@@ -427,7 +427,7 @@
 
   <transmission name="tran10">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="rigth_inferior_eyelid_joint">
+    <joint name="right_inferior_eyelid_joint">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor10">
@@ -449,7 +449,7 @@
 
   <transmission name="tran12">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="rigth_eye_horizontal_joint">
+    <joint name="right_eye_horizontal_joint">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor12">
@@ -471,7 +471,7 @@
 
   <transmission name="tran14">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="rigth_eye_vertical_joint">
+    <joint name="right_eye_vertical_joint">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="motor14">
