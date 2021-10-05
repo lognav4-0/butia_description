@@ -26,13 +26,13 @@
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="package://patrolbot_description/meshes/hull.stl" />
+                <mesh filename="package://patrolbot_description/meshes/hull.stl" scale = "1 1 0.7"/>
             </geometry>
         </collision>
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="package://patrolbot_description/meshes/hull.stl" />
+                <mesh filename="package://patrolbot_description/meshes/hull.stl" scale = "1 1 0.7"/>
             </geometry>
         </visual>
     </link>
