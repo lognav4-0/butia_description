@@ -65,7 +65,7 @@
         <origin xyz="0.20 0 0" rpy="0 0 0" />
         <axis xyz="0 0 1"/>
         <limit effort="2000.0" lower="0.02" upper="0.5" velocity="0.5"/>
-        <dynamics damping="20" friction="5"/>
+        <dynamics damping="0.5" friction="0.1"/>
     </joint>
     <xacro:sick_lms1xx />
     <joint name="laser_joint" type="fixed">
@@ -80,7 +80,7 @@
     </joint-->
     <!--xacro:sensor_kinect prefix="" name="kinect" parent="dorso_link" cam_px="-0.18" cam_py="0" cam_pz="0.01" cam_or="${-3.1416/2}" cam_op="0" cam_oy="${3.1416/2}"></xacro:sensor_kinect-->
     <xacro:kinect_camera name="kinect2" parent="dorso_link">
-        <origin xyz="0.23 0 0.9" rpy="0 0.348 0" />
+        <origin xyz="0.23 0 0.82" rpy="0 0.348 0" />
     </xacro:kinect_camera>
     <!--
     <xacro:realsense_d435_camera_with_mount name="realsense" parent="roll_2_link">
@@ -113,10 +113,10 @@
     <transmission name="trans_dorso_arm_base_joint">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="dorso_arm_base">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
         </joint>
         <actuator name="dorso_arm_linear_actuator">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
@@ -133,60 +133,60 @@
     <transmission name="trans_shoulder_joint">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="shoulder_joint">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
         </joint>
         <actuator name="shoulder_joint_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             <mechanicalReduction>5</mechanicalReduction>
         </actuator>
     </transmission>
     <transmission name="trans_forearm_shoulder_joint">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="forearm_shoulder_joint">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
         </joint>
         <actuator name="forearm_shoulder_joint_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             <mechanicalReduction>5</mechanicalReduction>
         </actuator>
     </transmission>
     <transmission name="trans_elbow_joint">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="elbow_joint">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
         </joint>
         <actuator name="elbow_joint_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             <mechanicalReduction>5</mechanicalReduction>
         </actuator>
     </transmission>
     <transmission name="trans_roll_joint">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="roll_joint">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
         </joint>
         <actuator name="roll_joint_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             <mechanicalReduction>5</mechanicalReduction>
         </actuator>
     </transmission>
     <transmission name="trans_yaw_joint">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="yaw_joint">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
         </joint>
         <actuator name="yaw_joint_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             <mechanicalReduction>5</mechanicalReduction>
         </actuator>
     </transmission>
     <transmission name="trans_roll_2_joint">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="roll_2_joint">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
         </joint>
         <actuator name="roll_2_joint_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             <mechanicalReduction>5</mechanicalReduction>
         </actuator>
     </transmission><!--
@@ -213,20 +213,20 @@
     <transmission name="trans_left_finger_joint">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="left_finger_joint">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
         </joint>
         <actuator name="left_finger_joint_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             <mechanicalReduction>5</mechanicalReduction>
         </actuator>
     </transmission>
     <transmission name="trans_right_finger_joint">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="right_finger_joint">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
         </joint>
         <actuator name="right_finger_joint_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
             <mechanicalReduction>5</mechanicalReduction>
         </actuator>
     </transmission>
