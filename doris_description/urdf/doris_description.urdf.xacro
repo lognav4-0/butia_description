@@ -15,6 +15,12 @@
         <child link="base_link" />
         <parent link="base_footprint" />
     </joint>
+    <link name="gripper_ir_link"></link>
+    <joint name="gripper_ir_joint" type="fixed">
+        <child link="gripper_ir_link"/>
+        <parent link="gripper_link"/>
+        <origin xyz="0.05 0 -0.05" rpy="0 1.57 0"/>
+    </joint>
     <link name="frontal_caster_link">
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0" />
@@ -113,10 +119,10 @@
     <transmission name="trans_dorso_arm_base_joint">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="dorso_arm_base">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
         </joint>
         <actuator name="dorso_arm_linear_actuator">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
@@ -133,60 +139,60 @@
     <transmission name="trans_shoulder_joint">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="shoulder_joint">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
         </joint>
         <actuator name="shoulder_joint_motor">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             <mechanicalReduction>5</mechanicalReduction>
         </actuator>
     </transmission>
     <transmission name="trans_forearm_shoulder_joint">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="forearm_shoulder_joint">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
         </joint>
         <actuator name="forearm_shoulder_joint_motor">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             <mechanicalReduction>5</mechanicalReduction>
         </actuator>
     </transmission>
     <transmission name="trans_elbow_joint">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="elbow_joint">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
         </joint>
         <actuator name="elbow_joint_motor">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             <mechanicalReduction>5</mechanicalReduction>
         </actuator>
     </transmission>
     <transmission name="trans_roll_joint">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="roll_joint">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
         </joint>
         <actuator name="roll_joint_motor">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             <mechanicalReduction>5</mechanicalReduction>
         </actuator>
     </transmission>
     <transmission name="trans_yaw_joint">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="yaw_joint">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
         </joint>
         <actuator name="yaw_joint_motor">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             <mechanicalReduction>5</mechanicalReduction>
         </actuator>
     </transmission>
     <transmission name="trans_roll_2_joint">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="roll_2_joint">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
         </joint>
         <actuator name="roll_2_joint_motor">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             <mechanicalReduction>5</mechanicalReduction>
         </actuator>
     </transmission><!--
@@ -213,20 +219,20 @@
     <transmission name="trans_left_finger_joint">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="left_finger_joint">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
         </joint>
         <actuator name="left_finger_joint_motor">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             <mechanicalReduction>5</mechanicalReduction>
         </actuator>
     </transmission>
     <transmission name="trans_right_finger_joint">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="right_finger_joint">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
         </joint>
         <actuator name="right_finger_joint_motor">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             <mechanicalReduction>5</mechanicalReduction>
         </actuator>
     </transmission>
@@ -392,6 +398,43 @@
             <disable_collisions_on_attach>false</disable_collisions_on_attach>
             <contact_topic>__default_topic__</contact_topic>
         </plugin>
+    </gazebo>
+    <gazebo reference="gripper_ir_link">
+        <sensor type="ray" name="ir_gripper">
+            <pose>0 0 0 0 0 0</pose>
+            <update_rate>50</update_rate>
+            <ray>
+                <scan>
+                    <horizontal>
+                        <samples>1</samples>
+                        <resolution>1.0</resolution>
+                        <min_angle>-0.01</min_angle>
+                        <max_angle>0.01</max_angle>
+                    </horizontal>
+                    <vertical>
+                        <samples>1</samples>
+                        <resolution>1</resolution>
+                        <min_angle>-0.01</min_angle>
+                        <max_angle>0.01</max_angle>
+                    </vertical>
+                </scan>
+                <range>
+                    <min>0.01</min>
+                    <max>1.5</max>
+                    <resolution>0.02</resolution>
+                </range>
+            </ray>
+            <plugin filename="libgazebo_ros_range.so" name="gazebo_ros_range">
+                <gaussianNoise>0.005</gaussianNoise>
+                <alwaysOn>true</alwaysOn>
+                <updateRate>5</updateRate>
+                <topicName>/gripper/range</topicName>
+                <frameName>ir_gripper</frameName>
+                <visualize>false</visualize>
+                <radiation>infrared</radiation>
+                <fov>0.02</fov>
+            </plugin>
+        </sensor>
     </gazebo>
     <!--
     <gazebo reference="doris_hand">
