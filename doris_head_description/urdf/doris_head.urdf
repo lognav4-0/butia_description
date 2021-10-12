@@ -11,7 +11,7 @@
       <visual name="head">
         <origin xyz="-0.02248 -0.11374 -0.02141" rpy="1.5708 0 0"/>
         <geometry>
-          <mesh filename="package://rosto_teste/meshes/dae/Cube.001.dae" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://doris_head_description/meshes/dae/Cube.001.dae" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="Gray_001"/>
       </visual>
@@ -26,7 +26,7 @@
       <visual name="jaw">
         <origin xyz="0.05463 0.06043 -0.08008" rpy="1.5708 0 0"/>
         <geometry>
-          <mesh filename="package://rosto_teste/meshes/dae/Plane.012.dae" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://doris_head_description/meshes/dae/Plane.012.dae" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="Face_000"/>
       </visual>
@@ -49,7 +49,7 @@
       <visual name="left_eye">
         <origin xyz="0 0 0" rpy="-1.5708 0 0"/>
         <geometry>
-          <mesh filename="package://rosto_teste/meshes/dae/Cube.002.dae" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://doris_head_description/meshes/dae/Cube.002.dae" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="WHITE_003"/>
       </visual>
@@ -64,7 +64,7 @@
       <visual name="left_inferior_eyelid">
         <origin xyz="0.00498 -0.01247 -0.02356" rpy="-1.56706 -0.06102 -0.06125"/>
         <geometry>
-          <mesh filename="package://rosto_teste/meshes/dae/Plane.015.dae" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://doris_head_description/meshes/dae/Plane.015.dae" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="Gray_001"/>
       </visual>
@@ -79,7 +79,7 @@
       <visual name="left_eyebrow">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://rosto_teste/meshes/dae/Cylinder.004.dae" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://doris_head_description/meshes/dae/Cylinder.004.dae" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="BLACK_006"/>
       </visual>
@@ -94,7 +94,7 @@
       <visual name="left_superior_eyelid">
         <origin xyz="0.00551 -0.01216 -0.01543" rpy="1.5708 -0.06113 0"/>
         <geometry>
-          <mesh filename="package://rosto_teste/meshes/dae/Plane.001.dae" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://doris_head_description/meshes/dae/Plane.001.dae" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="Gray_001"/>
       </visual>
@@ -117,7 +117,7 @@
       <visual name="neck">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://rosto_teste/meshes/dae/Cube.055.dae" scale="0.01 0.01 0.01"/>
+          <mesh filename="package://doris_head_description/meshes/dae/Cube.055.dae" scale="0.01 0.01 0.01"/>
         </geometry>
       </visual>
     </link>
@@ -131,7 +131,7 @@
       <visual name="right_eyebrow">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://rosto_teste/meshes/dae/Cylinder.005.dae" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://doris_head_description/meshes/dae/Cylinder.005.dae" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="BLACK_007"/>
       </visual>
@@ -162,7 +162,7 @@
       <visual name="right_eye">
         <origin xyz="0 0 0" rpy="-1.5708 0 0"/>
         <geometry>
-          <mesh filename="package://rosto_teste/meshes/dae/Cube.007.dae" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://doris_head_description/meshes/dae/Cube.007.dae" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="WHITE_004"/>
       </visual>
@@ -177,7 +177,7 @@
       <visual name="right_inferior_eyelid">
         <origin xyz="0.0038 -0.01141 -0.01966" rpy="-1.5708 0 0"/>
         <geometry>
-          <mesh filename="package://rosto_teste/meshes/dae/Plane.013.dae" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://doris_head_description/meshes/dae/Plane.013.dae" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="Gray_001"/>
       </visual>
@@ -192,7 +192,7 @@
       <visual name="right_superior_eyelid">
         <origin xyz="0.00701 -0.01106 -0.01469" rpy="1.5708 0 0.3358"/>
         <geometry>
-          <mesh filename="package://rosto_teste/meshes/dae/Plane.014.dae" scale="0.001 0.001 0.001"/>
+          <mesh filename="package://doris_head_description/meshes/dae/Plane.014.dae" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="Gray_001"/>
       </visual>
