@@ -211,7 +211,7 @@
       <parent link="head_root"/>
       <child link="neck_link"/>
       <axis xyz="0 0 1.0"/>
-      <limit lower="-0.86" upper="0.86" effort="6.5" velocity="1000"/>
+      <limit lower="-0.86" upper="0.86" effort="1.0" velocity="10"/>
     </joint>
 
     <joint name="jaw_joint" type="revolute">
@@ -219,7 +219,7 @@
       <parent link="head_link"/>
       <child link="jaw_link"/>
       <axis xyz="0 0 1.0"/>
-      <limit lower="0" upper="0.5" effort="6.5" velocity="1000"/>
+      <limit lower="0" upper="0.5" effort="1.0" velocity="10"/>
     </joint>
 
     <joint name="left_eye_horizontal_joint" type="revolute">
@@ -227,7 +227,7 @@
       <parent link="head_link"/>
       <child link="left_eye_horizontal_link"/>
       <axis xyz="0 0 1.0"/>
-      <limit lower="-0.27453" upper="0.7854" effort="6.5" velocity="1000"/>
+      <limit lower="-0.27453" upper="0.7854" effort="1.0" velocity="10"/>
     </joint>
 
     <joint name="left_eye_vertical_joint" type="revolute">
@@ -235,7 +235,7 @@
       <parent link="left_eye_horizontal_link"/>
       <child link="left_eye_vertical_link"/>
       <axis xyz="0 0 1.0"/>
-      <limit lower="-0.17453" upper="0.7854" effort="6.5" velocity="1000"/>
+      <limit lower="-0.17453" upper="0.7854" effort="1.0" velocity="10"/>
     </joint>
 
     <joint name="left_inferior_eyelid_joint" type="revolute">
@@ -243,7 +243,7 @@
       <parent link="head_link"/>
       <child link="left_inferior_eyelid_link"/>
       <axis xyz="0 0 1.0"/>
-      <limit lower="-0.17453" upper="0.7854" effort="6.5" velocity="1000"/>
+      <limit lower="-0.17453" upper="0.7854" effort="1.0" velocity="10"/>
     </joint>
 
     <joint name="left_rotacional_eyebrow_joint" type="revolute">
@@ -251,7 +251,7 @@
       <parent link="left_vertical_eyebrow_link"/>
       <child link="left_rotacional_eyebrow_link"/>
       <axis xyz="0 0 1.0"/>
-      <limit lower="-0.17453" upper="0.4" effort="6.5" velocity="1000"/>
+      <limit lower="-0.17453" upper="0.4" effort="1.0" velocity="10"/>
     </joint>
 
     <joint name="left_superior_eyelid_joint" type="revolute">
@@ -259,7 +259,7 @@
       <parent link="head_link"/>
       <child link="left_superior_eyelid_link"/>
       <axis xyz="0 0 1.0"/>
-      <limit lower="-0.17453" upper="0.4" effort="6.5" velocity="1000"/>
+      <limit lower="-0.17453" upper="0.4" effort="1.0" velocity="10"/>
     </joint>
 
     <joint name="left_vertical_eyebrow_joint" type="prismatic">
@@ -267,7 +267,7 @@
       <parent link="head_link"/>
       <child link="left_vertical_eyebrow_link"/>
       <axis xyz="0 0 1.0"/>
-      <limit lower="0" upper="0.02" effort="6.5" velocity="1000"/>
+      <limit lower="0" upper="0.02" effort="1.0" velocity="10"/>
     </joint>
 
     <joint name="right_rotacional_eyebrow_joint" type="revolute">
@@ -275,7 +275,7 @@
       <parent link="right_vertical_eyebrow_link"/>
       <child link="right_rotacional_eyebrow_link"/>
       <axis xyz="0 0 1.0"/>
-      <limit lower="-0.4" upper="0.17453" effort="6.5" velocity="1000"/>
+      <limit lower="-0.4" upper="0.17453" effort="1.0" velocity="10"/>
     </joint>
 
     <joint name="right_vertical_eyebrow_joint" type="prismatic">
@@ -283,7 +283,7 @@
       <parent link="head_link"/>
       <child link="right_vertical_eyebrow_link"/>
       <axis xyz="0 0 1.0"/>
-      <limit lower="0" upper="0.02" effort="6.5" velocity="1000"/>
+      <limit lower="0" upper="0.02" effort="1.0" velocity="10"/>
     </joint>
 
     <joint name="right_eye_horizontal_joint" type="revolute">
@@ -291,7 +291,7 @@
       <parent link="head_link"/>
       <child link="right_eye_horizontal_link"/>
       <axis xyz="0 0 1.0"/>
-      <limit lower="-0.27453" upper="0.4" effort="6.5" velocity="1000"/>
+      <limit lower="-0.27453" upper="0.4" effort="1.0" velocity="10"/>
     </joint>
 
     <joint name="right_eye_vertical_joint" type="revolute">
@@ -299,7 +299,7 @@
       <parent link="right_eye_horizontal_link"/>
       <child link="right_eye_vertical_link"/>
       <axis xyz="0 0 1.0"/>
-      <limit lower="-0.2" upper="0.7854" effort="6.5" velocity="1000"/>
+      <limit lower="-0.2" upper="0.7854" effort="1.0" velocity="10"/>
     </joint>
 
     <joint name="right_inferior_eyelid_joint" type="revolute">
@@ -307,7 +307,7 @@
       <parent link="head_link"/>
       <child link="right_inferior_eyelid_link"/>
       <axis xyz="0 0 1.0"/>
-      <limit lower="-0.17" upper="0.7854" effort="6.5" velocity="1000"/>
+      <limit lower="-0.17" upper="0.7854" effort="1.0" velocity="10"/>
     </joint>
 
     <joint name="right_superior_eyelid_joint" type="revolute">
@@ -315,7 +315,7 @@
       <parent link="head_link"/>
       <child link="right_superior_eyelid_link"/>
       <axis xyz="0 0 1.0"/>
-      <limit lower="-0.4" upper="0.17" effort="6.5" velocity="1000"/>
+      <limit lower="-0.4" upper="0.17" effort="1.0" velocity="10"/>
     </joint>
 
     <joint name="vertical_neck_joint" type="revolute">
@@ -323,7 +323,7 @@
       <parent link="neck_link"/>
       <child link="head_link"/>
       <axis xyz="0 0 1.0"/>
-      <limit lower="0" upper="0.5" effort="6.5" velocity="1000"/>
+      <limit lower="0" upper="0.5" effort="1.0" velocity="10"/>
     </joint>
     
     <transmission name="tran1">
