@@ -19,7 +19,7 @@
     <joint name="gripper_ir_joint" type="fixed">
         <child link="gripper_ir_link"/>
         <parent link="gripper_link"/>
-        <origin xyz="0.05 0 -0.05" rpy="0 1.57 0"/>
+        <origin xyz="0.02 0 -0.01" rpy="0 1.57 0"/>
     </joint>
     <link name="frontal_caster_link">
         <inertial>
@@ -104,7 +104,7 @@
         <origin xyz="-0.25 -0.7 0.01" rpy="${3.1416/2} ${-3.1416/2} 3.1416" />
     </joint-->
     <xacro:hokuyo_utm30lx name="hokuyo" parent="base_link" ros_topic="scan2" update_rate="30" ray_count="500" min_angle="-90" max_angle="90">
-        <origin xyz="0.32 0 0.08" rpy="3.14 0 0" />
+        <origin xyz="0.32 0 0" rpy="3.14 0 0" />
     </xacro:hokuyo_utm30lx>
     <transmission name="trans_left_wheel_joint">
         <type>transmission_interface/SimpleTransmission</type>
@@ -393,12 +393,12 @@
             <forces_angle_tolerance>100</forces_angle_tolerance>
             <update_rate>4</update_rate>
             <grip_count_threshold>4</grip_count_threshold>
-            <max_grip_count>8</max_grip_count>
+            <max_grip_count>4</max_grip_count>
             <release_tolerance>0.005</release_tolerance>
             <disable_collisions_on_attach>false</disable_collisions_on_attach>
             <contact_topic>__default_topic__</contact_topic>
         </plugin>
-    </gazebo-->
+    </gazeb-->
     <gazebo reference="gripper_ir_link">
         <sensor type="ray" name="ir_gripper">
             <pose>0 0 0 0 0 0</pose>
@@ -425,6 +425,7 @@
                 </range>
             </ray>
             <plugin filename="libgazebo_ros_range.so" name="gazebo_ros_range">
+                <selfCollide>false</selfCollide>
                 <alwaysOn>true</alwaysOn>
                 <updateRate>5</updateRate>
                 <topicName>/gripper/range</topicName>
@@ -432,6 +433,34 @@
                 <visualize>false</visualize>
                 <radiation>infrared</radiation>
                 <fov>0.8</fov>
+            </plugin>
+        </sensor>
+    </gazebo>
+    <gazebo reference="left_finger_link">
+        <sensor name="left_finger_bumper" type="contact">
+            <selfCollide>false</selfCollide>
+            <alwaysOn>true</alwaysOn>
+            <updateRate>50.0</updateRate>
+            <contact>
+                <collision>left_finger_link_collision</collision>
+            </contact>
+            <plugin name="left_finger_ros_bumper_controller" filename="libgazebo_ros_bumper.so">   
+                <bumperTopicName>/gripper/contact/left</bumperTopicName>
+                <frameName>world</frameName>
+            </plugin>
+        </sensor>
+    </gazebo>
+    <gazebo reference="right_finger_link">
+        <sensor name="right_finger_bumper" type="contact">
+            <selfCollide>false</selfCollide>
+            <alwaysOn>true</alwaysOn>
+            <updateRate>50.0</updateRate>
+            <contact>
+                <collision>right_finger_link_collision</collision>
+            </contact>
+            <plugin name="right_finger_ros_bumper_controller" filename="libgazebo_ros_bumper.so">   
+                <bumperTopicName>/gripper/contact/right</bumperTopicName>
+                <frameName>world</frameName>
             </plugin>
         </sensor>
     </gazebo>
