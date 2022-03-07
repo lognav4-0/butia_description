@@ -15,6 +15,12 @@
         <child link="base_link" />
         <parent link="base_footprint" />
     </joint>
+    <link name="gripper_ir_link"></link>
+    <joint name="gripper_ir_joint" type="fixed">
+        <child link="gripper_ir_link"/>
+        <parent link="gripper_link"/>
+        <origin xyz="0.02 0 -0.01" rpy="0 1.57 0"/>
+    </joint>
     <link name="frontal_caster_link">
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0" />
@@ -57,16 +63,19 @@
     <joint name="base_link_dorso" type="fixed">
         <parent link="base_link" />
         <child link="dorso_link" />
-        <origin xyz="0 0 0.32" rpy="0 0 0" />
+        <origin xyz="0 0 0.28" rpy="0 0 0" />
     </joint>
-    <joint name="dorso_arm_base" type="fixed">
+    <joint name="dorso_arm_base" type="prismatic">
         <parent link="dorso_link" />
         <child link="arm_base_link" />
-        <origin xyz="0.2 0 0.6" rpy="0 0 0" />
+        <origin xyz="0.20 0 0" rpy="0 0 0" />
+        <axis xyz="0 0 1"/>
+        <limit effort="2000.0" lower="0.02" upper="0.6" velocity="0.5"/>
+        <dynamics damping="0.5" friction="0.1"/>
     </joint>
     <xacro:sick_lms1xx />
     <joint name="laser_joint" type="fixed">
-        <origin xyz="0.222 0 0.16" rpy="0 0 0" />
+        <origin xyz="0.222 0 -0.07" rpy="0 0 0" />
         <parent link="dorso_link" />
         <child link="laser" />
     </joint>
@@ -77,7 +86,7 @@
     </joint-->
     <!--xacro:sensor_kinect prefix="" name="kinect" parent="dorso_link" cam_px="-0.18" cam_py="0" cam_pz="0.01" cam_or="${-3.1416/2}" cam_op="0" cam_oy="${3.1416/2}"></xacro:sensor_kinect-->
     <xacro:kinect_camera name="kinect2" parent="dorso_link">
-        <origin xyz="0.2 0 1.08" rpy="0 0 0" />
+        <origin xyz="0.23 0 0.82" rpy="0 0.348 0" />
     </xacro:kinect_camera>
     <!--
     <xacro:realsense_d435_camera_with_mount name="realsense" parent="roll_2_link">
@@ -94,8 +103,8 @@
         <child link="hokuyo_link" />
         <origin xyz="-0.25 -0.7 0.01" rpy="${3.1416/2} ${-3.1416/2} 3.1416" />
     </joint-->
-    <xacro:hokuyo_utm30lx name="hokuyo" parent="base_link" ros_topic="scan2" update_rate="30" ray_count="500" min_angle="0" max_angle="-180">
-        <origin xyz="0.35 0 0.01" rpy="3.14 0 0" />
+    <xacro:hokuyo_utm30lx name="hokuyo" parent="base_link" ros_topic="scan2" update_rate="30" ray_count="500" min_angle="-90" max_angle="90">
+        <origin xyz="0.32 0 0" rpy="3.14 0 0" />
     </xacro:hokuyo_utm30lx>
     <transmission name="trans_left_wheel_joint">
         <type>transmission_interface/SimpleTransmission</type>
@@ -103,6 +112,16 @@
             <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
         </joint>
         <actuator name="left_wheel_joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_dorso_arm_base_joint">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="dorso_arm_base">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="dorso_arm_linear_actuator">
             <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
@@ -363,7 +382,7 @@
         <mu2>100000.0</mu2>
         <min_depth>0.1</min_depth>
     </gazebo>
-    <gazebo>
+    <!--gazebo>
         <plugin name="gazebo_grasp_fix" filename="libgazebo_grasp_fix.so">
             <arm>
                 <arm_name>arm</arm_name>
@@ -374,11 +393,76 @@
             <forces_angle_tolerance>100</forces_angle_tolerance>
             <update_rate>4</update_rate>
             <grip_count_threshold>4</grip_count_threshold>
-            <max_grip_count>8</max_grip_count>
+            <max_grip_count>4</max_grip_count>
             <release_tolerance>0.005</release_tolerance>
             <disable_collisions_on_attach>false</disable_collisions_on_attach>
             <contact_topic>__default_topic__</contact_topic>
         </plugin>
+    </gazeb-->
+    <gazebo reference="gripper_ir_link">
+        <sensor type="ray" name="ir_gripper">
+            <pose>0 0 0 0 0 0</pose>
+            <update_rate>50</update_rate>
+            <ray>
+                <scan>
+                    <horizontal>
+                        <samples>1</samples>
+                        <resolution>1.0</resolution>
+                        <min_angle>-0.08</min_angle>
+                        <max_angle>0.08</max_angle>
+                    </horizontal>
+                    <vertical>
+                        <samples>1</samples>
+                        <resolution>1</resolution>
+                        <min_angle>-0.04</min_angle>
+                        <max_angle>0.04</max_angle>
+                    </vertical>
+                </scan>
+                <range>
+                    <min>0.01</min>
+                    <max>1.5</max>
+                    <resolution>0.002</resolution>
+                </range>
+            </ray>
+            <plugin filename="libgazebo_ros_range.so" name="gazebo_ros_range">
+                <selfCollide>false</selfCollide>
+                <alwaysOn>true</alwaysOn>
+                <updateRate>5</updateRate>
+                <topicName>/gripper/range</topicName>
+                <frameName>ir_gripper</frameName>
+                <visualize>false</visualize>
+                <radiation>infrared</radiation>
+                <fov>0.8</fov>
+            </plugin>
+        </sensor>
+    </gazebo>
+    <gazebo reference="left_finger_link">
+        <sensor name="left_finger_bumper" type="contact">
+            <selfCollide>false</selfCollide>
+            <alwaysOn>true</alwaysOn>
+            <updateRate>50.0</updateRate>
+            <contact>
+                <collision>left_finger_link_collision</collision>
+            </contact>
+            <plugin name="left_finger_ros_bumper_controller" filename="libgazebo_ros_bumper.so">   
+                <bumperTopicName>/gripper/contact/left</bumperTopicName>
+                <frameName>world</frameName>
+            </plugin>
+        </sensor>
+    </gazebo>
+    <gazebo reference="right_finger_link">
+        <sensor name="right_finger_bumper" type="contact">
+            <selfCollide>false</selfCollide>
+            <alwaysOn>true</alwaysOn>
+            <updateRate>50.0</updateRate>
+            <contact>
+                <collision>right_finger_link_collision</collision>
+            </contact>
+            <plugin name="right_finger_ros_bumper_controller" filename="libgazebo_ros_bumper.so">   
+                <bumperTopicName>/gripper/contact/right</bumperTopicName>
+                <frameName>world</frameName>
+            </plugin>
+        </sensor>
     </gazebo>
     <!--
     <gazebo reference="doris_hand">
