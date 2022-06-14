@@ -1,13 +1,8 @@
 <launch>
-    <include file="$(find gazebo_ros)/launch/empty_world.launch" />
-    <param name="robot_description" command="$(find xacro)/xacro $(find doris_description)/urdf/doris_description.urdf.xacro" />
-    <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model doris" output="screen" />
-    <!-- Load joint controller configurations from YAML file to parameter server -->
-    <rosparam file="$(find doris_description)/config/ros_controllers.yaml" command="load" />
-
-    <!-- Load the controllers -->
-    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="arm_effort_controller gripper_effort_controller joint_state_controller" />
-    
-    <include file="$(find doris_head_description)/launch/doris_head_controller.launch">
+    <include file="$(find interbotix_xsarm_moveit)/launch/xsarm_moveit.launch">
+        <arg name="robot_model" value="doris_arm"/>
+        <arg name="use_gazebo" value="true"/>
+        <arg name="use_world_frame" value="false"/>
+        <arg name="external_urdf_loc" value="$(find doris_description)/urdf/doris_description.urdf.xacro"/>
     </include>
 </launch>

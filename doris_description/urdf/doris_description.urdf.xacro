@@ -1,25 +1,22 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="doris">
     <xacro:include filename="$(find patrolbot_description)/urdf/patrolbot_description.urdf" />
-    <xacro:include filename="$(find doris_arm_description)/urdf/doris_arm_description.urdf.xacro" />
-    <xacro:include filename="$(find doris_arm_description)/urdf/hand.xacro" />
+    <!--xacro:include filename="$(find doris_arm_description)/urdf/doris_arm_description.urdf.xacro" /-->
+    <!--xacro:include filename="$(find interbotix_xsarm_descriptions)/urdf/doris_arm.urdf.xacro" /-->
+    <!--xacro:include filename="$(find doris_arm_description)/urdf/hand.xacro" /-->
     <xacro:include filename="$(find doris_dorso_description)/urdf/doris_dorso_description.urdf" />
     <!--xacro:include filename="$(find kinect2_description)/urdf/kinect2_description.urdf.xacro" /-->
     <xacro:include filename="$(find doris_head_description)/urdf/doris_head.urdf" />
-    <xacro:include filename="$(find hector_sensors_description)/urdf/hokuyo_utm30lx.urdf.xacro" />
-    <xacro:include filename="$(find hector_sensors_description)/urdf/kinect_camera.urdf.xacro" />
+    <xacro:include filename="$(find doris_sensors_description)/urdf/hokuyo.urdf.xacro" />
+    <xacro:include filename="$(find doris_sensors_description)/urdf/sick_lms1xx.urdf.xacro" />
+    <xacro:include filename="$(find doris_sensors_description)/urdf/materials.xacro" />
+    <xacro:include filename="$(find doris_sensors_description)/urdf/kinect_camera.urdf.xacro" />
     <xacro:include filename="$(find hector_sensors_description)/urdf/realsense_d435_camera.urdf.xacro" />
-    <xacro:include filename="$(find lms1xx)/urdf/sick_lms1xx.urdf.xacro" />
+    <!--xacro:include filename="$(find lms1xx)/urdf/sick_lms1xx.urdf.xacro" /-->
     <link name="base_footprint"></link>
     <joint name="base_joint" type="fixed">
         <child link="base_link" />
         <parent link="base_footprint" />
-    </joint>
-    <link name="gripper_ir_link"></link>
-    <joint name="gripper_ir_joint" type="fixed">
-        <child link="gripper_ir_link"/>
-        <parent link="gripper_link"/>
-        <origin xyz="0.02 0 -0.01" rpy="0 1.57 0"/>
     </joint>
     <link name="frontal_caster_link">
         <inertial>
@@ -65,13 +62,10 @@
         <child link="dorso_link" />
         <origin xyz="0 0 0.28" rpy="0 0 0" />
     </joint>
-    <joint name="dorso_arm_base" type="prismatic">
+    <joint name="dorso_arm_base" type="fixed">
         <parent link="dorso_link" />
-        <child link="arm_base_link" />
-        <origin xyz="0.20 0 0" rpy="0 0 0" />
-        <axis xyz="0 0 1"/>
-        <limit effort="2000.0" lower="0.02" upper="0.6" velocity="0.5"/>
-        <dynamics damping="0.5" friction="0.1"/>
+        <child link="doris_arm/base_link" />
+        <origin xyz="0.20 0 0.1" rpy="0 0 0" />
     </joint>
     <xacro:sick_lms1xx />
     <joint name="laser_joint" type="fixed">
@@ -103,144 +97,10 @@
         <child link="hokuyo_link" />
         <origin xyz="-0.25 -0.7 0.01" rpy="${3.1416/2} ${-3.1416/2} 3.1416" />
     </joint-->
-    <xacro:hokuyo_utm30lx name="hokuyo" parent="base_link" ros_topic="scan2" update_rate="30" ray_count="500" min_angle="-90" max_angle="90">
+    <!--xacro:hokuyo_utm30lx name="hokuyo" parent="base_link" ros_topic="scan2" update_rate="30" ray_count="500" min_angle="-90" max_angle="90">
         <origin xyz="0.32 0 0" rpy="3.14 0 0" />
-    </xacro:hokuyo_utm30lx>
-    <transmission name="trans_left_wheel_joint">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="left_wheel_joint">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="left_wheel_joint_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-            <mechanicalReduction>1</mechanicalReduction>
-        </actuator>
-    </transmission>
-    <transmission name="trans_dorso_arm_base_joint">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="dorso_arm_base">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="dorso_arm_linear_actuator">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-            <mechanicalReduction>1</mechanicalReduction>
-        </actuator>
-    </transmission>
-    <transmission name="trans_right_wheel_joint">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="right_wheel_joint">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="right_wheel_joint_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-            <mechanicalReduction>1</mechanicalReduction>
-        </actuator>
-    </transmission>
-    <transmission name="trans_shoulder_joint">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="shoulder_joint">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="shoulder_joint_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-            <mechanicalReduction>5</mechanicalReduction>
-        </actuator>
-    </transmission>
-    <transmission name="trans_forearm_shoulder_joint">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="forearm_shoulder_joint">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="forearm_shoulder_joint_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-            <mechanicalReduction>5</mechanicalReduction>
-        </actuator>
-    </transmission>
-    <transmission name="trans_elbow_joint">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="elbow_joint">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="elbow_joint_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-            <mechanicalReduction>5</mechanicalReduction>
-        </actuator>
-    </transmission>
-    <transmission name="trans_roll_joint">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="roll_joint">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="roll_joint_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-            <mechanicalReduction>5</mechanicalReduction>
-        </actuator>
-    </transmission>
-    <transmission name="trans_yaw_joint">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="yaw_joint">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="yaw_joint_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-            <mechanicalReduction>5</mechanicalReduction>
-        </actuator>
-    </transmission>
-    <transmission name="trans_roll_2_joint">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="roll_2_joint">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="roll_2_joint_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-            <mechanicalReduction>5</mechanicalReduction>
-        </actuator>
-    </transmission><!--
-    <transmission name="trans_doris_finger_joint1">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="doris_finger_joint1">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="doris_finger_joint1_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-            <mechanicalReduction>1</mechanicalReduction>
-        </actuator>
-    </transmission>
-    <transmission name="trans_doris_finger_joint2">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="doris_finger_joint2">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="doris_finger_joint2_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-            <mechanicalReduction>1</mechanicalReduction>
-        </actuator>
-    </transmission>-->
-    <transmission name="trans_left_finger_joint">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="left_finger_joint">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="left_finger_joint_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-            <mechanicalReduction>5</mechanicalReduction>
-        </actuator>
-    </transmission>
-    <transmission name="trans_right_finger_joint">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="right_finger_joint">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="right_finger_joint_motor">
-            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-            <mechanicalReduction>5</mechanicalReduction>
-        </actuator>
-    </transmission>
-    <gazebo>
-        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-            <robotNamespace>/</robotNamespace>
-        </plugin>
-    </gazebo>
+    </xacro:hokuyo_utm30lx-->
+    <xacro:sensor_hokuyo parent="base_link" xyz="0.2 0 0" rpy="0 3.1416 3.1416" />
     <transmission name="trans_left_wheel_joint">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="left_wheel_joint">
@@ -311,6 +171,9 @@
 
             <!-- Set to true to swap right and left wheels, defaults to true -->
             <legacyMode>false</legacyMode>
+
+            <robotNamespace>/</robotNamespace>
+
         </plugin>
     </gazebo>
     <material name="gray_material">
@@ -343,139 +206,4 @@
     <gazebo reference="dorso_link">
         <material>Gazebo/DarkGray</material>
     </gazebo>
-    <gazebo reference="arm_base_link">
-        <material>Gazebo/DarkGray</material>
-    </gazebo>
-    <gazebo reference="shoulder_link">
-        <material>Gazebo/DarkGray</material>
-    </gazebo>
-    <gazebo reference="forearm_link">
-        <material>Gazebo/DarkGray</material>
-    </gazebo>
-    <gazebo reference="elbow_link">
-        <material>Gazebo/DarkGray</material>
-    </gazebo>
-    <gazebo reference="roll_link">
-        <material>Gazebo/DarkGray</material>
-    </gazebo>
-    <gazebo reference="yaw_link">
-        <material>Gazebo/DarkGray</material>
-    </gazebo>
-    <gazebo reference="roll_2_link">
-        <material>Gazebo/DarkGray</material>
-    </gazebo>
-    <gazebo reference="gripper_link">
-        <material>Gazebo/DarkGray</material>
-        <mu1>10000.0</mu1>
-        <mu2>100000.0</mu2>
-        <min_depth>0.1</min_depth>
-    </gazebo>
-    <gazebo reference="left_finger_link">
-        <material>Gazebo/Gray</material>
-        <mu1>10000.0</mu1>
-        <mu2>100000.0</mu2>
-        <min_depth>0.1</min_depth>
-    </gazebo>
-    <gazebo reference="right_finger_link">
-        <material>Gazebo/Gray</material>
-        <mu1>10000.0</mu1>
-        <mu2>100000.0</mu2>
-        <min_depth>0.1</min_depth>
-    </gazebo>
-    <!--gazebo>
-        <plugin name="gazebo_grasp_fix" filename="libgazebo_grasp_fix.so">
-            <arm>
-                <arm_name>arm</arm_name>
-                <palm_link>roll_2_link</palm_link>
-                <gripper_link>left_finger_link</gripper_link>
-                <gripper_link>right_finger_link</gripper_link>
-            </arm>
-            <forces_angle_tolerance>100</forces_angle_tolerance>
-            <update_rate>4</update_rate>
-            <grip_count_threshold>4</grip_count_threshold>
-            <max_grip_count>4</max_grip_count>
-            <release_tolerance>0.005</release_tolerance>
-            <disable_collisions_on_attach>false</disable_collisions_on_attach>
-            <contact_topic>__default_topic__</contact_topic>
-        </plugin>
-    </gazeb-->
-    <gazebo reference="gripper_ir_link">
-        <sensor type="ray" name="ir_gripper">
-            <pose>0 0 0 0 0 0</pose>
-            <update_rate>50</update_rate>
-            <ray>
-                <scan>
-                    <horizontal>
-                        <samples>1</samples>
-                        <resolution>1.0</resolution>
-                        <min_angle>-0.08</min_angle>
-                        <max_angle>0.08</max_angle>
-                    </horizontal>
-                    <vertical>
-                        <samples>1</samples>
-                        <resolution>1</resolution>
-                        <min_angle>-0.04</min_angle>
-                        <max_angle>0.04</max_angle>
-                    </vertical>
-                </scan>
-                <range>
-                    <min>0.01</min>
-                    <max>1.5</max>
-                    <resolution>0.002</resolution>
-                </range>
-            </ray>
-            <plugin filename="libgazebo_ros_range.so" name="gazebo_ros_range">
-                <selfCollide>false</selfCollide>
-                <alwaysOn>true</alwaysOn>
-                <updateRate>5</updateRate>
-                <topicName>/gripper/range</topicName>
-                <frameName>ir_gripper</frameName>
-                <visualize>false</visualize>
-                <radiation>infrared</radiation>
-                <fov>0.8</fov>
-            </plugin>
-        </sensor>
-    </gazebo>
-    <gazebo reference="left_finger_link">
-        <sensor name="left_finger_bumper" type="contact">
-            <selfCollide>false</selfCollide>
-            <alwaysOn>true</alwaysOn>
-            <updateRate>50.0</updateRate>
-            <contact>
-                <collision>left_finger_link_collision</collision>
-            </contact>
-            <plugin name="left_finger_ros_bumper_controller" filename="libgazebo_ros_bumper.so">   
-                <bumperTopicName>/gripper/contact/left</bumperTopicName>
-                <frameName>world</frameName>
-            </plugin>
-        </sensor>
-    </gazebo>
-    <gazebo reference="right_finger_link">
-        <sensor name="right_finger_bumper" type="contact">
-            <selfCollide>false</selfCollide>
-            <alwaysOn>true</alwaysOn>
-            <updateRate>50.0</updateRate>
-            <contact>
-                <collision>right_finger_link_collision</collision>
-            </contact>
-            <plugin name="right_finger_ros_bumper_controller" filename="libgazebo_ros_bumper.so">   
-                <bumperTopicName>/gripper/contact/right</bumperTopicName>
-                <frameName>world</frameName>
-            </plugin>
-        </sensor>
-    </gazebo>
-    <!--
-    <gazebo reference="doris_hand">
-        <material>Gazebo/DarkGray</material>
-    </gazebo>
-    <gazebo reference="doris_leftfinger">
-        <material>Gazebo/Gray</material>
-        <mu1>100.0</mu1>
-        <mu2>100.0</mu2>
-    </gazebo>
-    <gazebo reference="doris_rightfinger">
-        <material>Gazebo/Gray</material>
-        <mu1>100.0</mu1>
-        <mu2>100.0</mu2>
-    </gazebo>-->
 </robot>
