@@ -1,8 +1,18 @@
 <launch>
+    <arg name="world_name" default=""/>
+    <arg name="x" default="0"/>
+    <arg name="y" default="0"/>
+    <arg name="z" default="0"/>
+    <arg name="yaw" default="0"/>
     <include file="$(find interbotix_xsarm_moveit)/launch/xsarm_moveit.launch">
         <arg name="robot_model" value="doris_arm"/>
+        <arg name="world_name" value="$(arg world_name)"/>
         <arg name="use_gazebo" value="true"/>
         <arg name="use_world_frame" value="false"/>
+        <arg name="x" default="$(arg x)"/>
+        <arg name="y" default="$(arg y)"/>
+        <arg name="z" default="$(arg z)"/>
+        <arg name="yaw" default="$(arg yaw)"/>
         <arg name="external_urdf_loc" value="$(find doris_description)/urdf/doris_description.urdf.xacro"/>
     </include>
 </launch>

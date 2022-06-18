@@ -80,7 +80,7 @@
     </joint-->
     <!--xacro:sensor_kinect prefix="" name="kinect" parent="dorso_link" cam_px="-0.18" cam_py="0" cam_pz="0.01" cam_or="${-3.1416/2}" cam_op="0" cam_oy="${3.1416/2}"></xacro:sensor_kinect-->
     <xacro:kinect_camera name="kinect2" parent="dorso_link">
-        <origin xyz="0.23 0 0.82" rpy="0 0.348 0" />
+        <origin xyz="0.23 0 0.82" rpy="0 0 0" />
     </xacro:kinect_camera>
     <!--
     <xacro:realsense_d435_camera_with_mount name="realsense" parent="roll_2_link">
@@ -143,7 +143,7 @@
             <wheelAcceleration>1.0</wheelAcceleration>
 
             <!-- Maximum torque which the wheels can produce, in Nm, defaults to 5 Nm -->
-            <wheelTorque>20</wheelTorque>
+            <wheelTorque>200</wheelTorque>
 
             <!-- Topic to receive geometry_msgs/Twist message commands, defaults to `cmd_vel` -->
             <commandTopic>cmd_vel</commandTopic>
@@ -187,21 +187,21 @@
     </gazebo>
     <gazebo reference="left_wheel_link">
         <material>Gazebo/DarkGray</material>
-        <mu1>0.2</mu1>
-        <mu2>0.2</mu2>
+        <mu1>0.95</mu1>
+        <mu2>0.95</mu2>
     </gazebo>
     <gazebo reference="right_wheel_link">
         <material>Gazebo/DarkGray</material>
-        <mu1>0.2</mu1>
-        <mu2>0.2</mu2>
+        <mu1>0.95</mu1>
+        <mu2>0.95</mu2>
     </gazebo>
     <gazebo reference="frontal_caster_link">
-        <mu1>0.0001</mu1>
-        <mu2>0.0001</mu2>
+        <mu1>0.000001</mu1>
+        <mu2>0.000001</mu2>
     </gazebo>
     <gazebo reference="rear_caster_link">
-        <mu1>0.0001</mu1>
-        <mu2>0.0001</mu2>
+        <mu1>0.000001</mu1>
+        <mu2>0.000001</mu2>
     </gazebo>
     <gazebo reference="dorso_link">
         <material>Gazebo/DarkGray</material>
