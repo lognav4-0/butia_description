@@ -13,6 +13,8 @@
         <arg name="y" default="$(arg y)"/>
         <arg name="z" default="$(arg z)"/>
         <arg name="yaw" default="$(arg yaw)"/>
+        <arg name="use_trajectory_controllers" default="true"/>
+        <arg name="use_position_controllers" default="false"/>
         <arg name="external_urdf_loc" value="$(find doris_description)/urdf/doris_description.urdf.xacro"/>
     </include>
 </launch>
