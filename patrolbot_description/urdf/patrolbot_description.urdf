@@ -12,7 +12,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://patrolbot_description/meshes/hull.stl" scale="1 1 0.8"/>
+        <mesh filename="package://patrolbot_description/meshes/hull.stl" scale="1 1 1"/>
       </geometry>
       <material name="">
         <color rgba="0.79216 0.81961 0.93333 1" />
@@ -21,7 +21,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://patrolbot_description/meshes/hull.stl" scale="1 1 0.8"/>
+        <mesh filename="package://patrolbot_description/meshes/hull.stl" scale="1 1 1"/>
       </geometry>
     </collision>
   </link>
