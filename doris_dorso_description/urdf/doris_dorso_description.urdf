@@ -12,7 +12,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://doris_dorso_description/meshes/dorso_link.STL" />
+        <mesh filename="package://doris_dorso_description/meshes/dorso_link.STL" scale="0.001 0.001 0.001" />
       </geometry>
       <material name="">
         <color rgba="0.79216 0.81961 0.93333 1" />
@@ -21,7 +21,7 @@
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://doris_dorso_description/meshes/dorso_link.STL" />
+        <mesh filename="package://doris_dorso_description/meshes/dorso_link.STL" scale="0.001 0.001 0.001" />
       </geometry>
     </collision>
   </link>
