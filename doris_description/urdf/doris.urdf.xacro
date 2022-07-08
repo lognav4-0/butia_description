@@ -6,4 +6,5 @@
         <child link="doris_arm/base_link" />
         <origin xyz="0.25 0 0.35" rpy="0 0 0" />
     </joint>
+    <xacro:include filename="$(find doris_arm_description)/urdf/doris_arm.urdf.xacro" />
 </robot>
