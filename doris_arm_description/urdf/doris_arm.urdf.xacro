@@ -9,13 +9,102 @@
     <xacro:arg name="show_gripper_fingers" default="true"/>
     <xacro:arg name="use_world_frame" default="false"/>
     <xacro:arg name="external_urdf_loc" default=""/>
-    <xacro:arg name="load_gazebo_configs" default="false"/>
+    <xacro:arg name="load_gazebo_configs" default="true"/>
 
     <xacro:property name="urdf_loc" value="$(arg external_urdf_loc)"/>
     <xacro:property name="pi_offset" value="0.00001"/>
 
     <xacro:if value="$(arg load_gazebo_configs)">
-        <xacro:include filename="$(find interbotix_xsarm_gazebo)/config/interbotix_texture.gazebo"/>
+        <gazebo>
+            <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+            <legacyModeNS>true</legacyModeNS>
+            <robotNamespace>/$(arg robot_name)</robotNamespace>
+            </plugin>
+        </gazebo>
+
+        <gazebo reference="$(arg robot_name)/$(arg base_link_frame)">
+            <material>Gazebo/DarkGray</material>
+            <dampingFactor>0.1</dampingFactor>
+        </gazebo>
+
+        <gazebo reference="$(arg robot_name)/shoulder_link">
+            <material>Gazebo/DarkGray</material>
+            <dampingFactor>0.1</dampingFactor>
+        </gazebo>
+
+        <gazebo reference="$(arg robot_name)/upper_arm_link">
+            <material>Gazebo/DarkGray</material>
+            <dampingFactor>0.1</dampingFactor>
+        </gazebo>
+
+        <gazebo reference="$(arg robot_name)/forearm_link">
+            <material>Gazebo/DarkGray</material>
+            <dampingFactor>0.1</dampingFactor>
+        </gazebo>
+
+        <gazebo reference="$(arg robot_name)/upper_forearm_link">
+            <material>Gazebo/DarkGray</material>
+            <dampingFactor>0.1</dampingFactor>
+        </gazebo>
+
+        <gazebo reference="$(arg robot_name)/lower_forearm_link">
+            <material>Gazebo/DarkGray</material>
+            <dampingFactor>0.1</dampingFactor>
+        </gazebo>
+
+        <gazebo reference="$(arg robot_name)/wrist_link">
+            <material>Gazebo/DarkGray</material>
+            <dampingFactor>0.1</dampingFactor>
+        </gazebo>
+
+        <gazebo reference="$(arg robot_name)/gripper_link">
+            <material>Gazebo/DarkGray</material>
+            <dampingFactor>0.1</dampingFactor>
+        </gazebo>
+
+        <gazebo reference="$(arg robot_name)/gripper_prop_link">
+            <material>Gazebo/DarkGray</material>
+            <dampingFactor>0.1</dampingFactor>
+        </gazebo>
+
+        <gazebo reference="$(arg robot_name)/gripper_bar_link">
+            <material>Gazebo/DarkGray</material>
+        </gazebo>
+
+        <gazebo reference="$(arg robot_name)/left_finger_link">
+            <material>Gazebo/DarkGray</material>
+            <dampingFactor>0.1</dampingFactor>
+        </gazebo>
+
+        <gazebo reference="$(arg robot_name)/right_finger_link">
+            <material>Gazebo/DarkGray</material>
+            <dampingFactor>0.1</dampingFactor>
+        </gazebo>
+
+        <gazebo reference="$(arg robot_name)/ar_tag_link">
+            <material>Gazebo/DarkGray</material>
+        </gazebo>
+
+        <gazebo reference="ee_arm">
+            <disableFixedJointLumping>true</disableFixedJointLumping>
+        </gazebo>
+
+        <gazebo reference="ar_tag">
+            <disableFixedJointLumping>true</disableFixedJointLumping>
+        </gazebo>
+
+        <gazebo reference="gripper_bar">
+            <disableFixedJointLumping>true</disableFixedJointLumping>
+        </gazebo>
+
+        <gazebo reference="ee_bar">
+            <disableFixedJointLumping>true</disableFixedJointLumping>
+        </gazebo>
+
+        <gazebo reference="ee_gripper">
+            <disableFixedJointLumping>true</disableFixedJointLumping>
+        </gazebo>
     </xacro:if>
 
     <material name="interbotix_black">

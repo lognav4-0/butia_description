@@ -83,11 +83,11 @@
             </clip>
           </camera>
           <plugin name="${name}_camera_controller" filename="libgazebo_ros_openni_kinect.so">
-            <imageTopicName>${name}/rgb/image_raw</imageTopicName>
-            <cameraInfoTopicName>${name}/rgb/camera_info</cameraInfoTopicName>
-            <depthImageTopicName>${name}/depth/image_raw</depthImageTopicName>
-            <depthImageCameraInfoTopicName>${name}/depth/camera_info</depthImageCameraInfoTopicName>
-            <pointCloudTopicName>${name}/depth/points</pointCloudTopicName>
+            <imageTopicName>butia_vision/bvb/image_rgb</imageTopicName>
+            <cameraInfoTopicName>butia_vision/bvb/camera_info</cameraInfoTopicName>
+            <depthImageTopicName>butia_vision/bvb/image_depth</depthImageTopicName>
+            <depthImageCameraInfoTopicName>butia_vision/bvb/camera_info_depth</depthImageCameraInfoTopicName>
+            <pointCloudTopicName>butia_vision/bvb/points</pointCloudTopicName>
             <frameName>${name}_depth_optical_frame</frameName>
             <robotNamespace>/</robotNamespace>
           </plugin>
