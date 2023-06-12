@@ -26,13 +26,6 @@
             <mesh filename="package://hector_sensors_description/meshes/kinect_camera/kinect_camera_simple.stl"/>
           </geometry>
         </collision>
-        <inertial>
-          <mass value = "0.170"/>
-          <origin xyz = "0 0 0"/>
-          <inertia ixx = "0.001152600" ixy = "0.0" ixz = "0.0"
-                   iyy = "0.000148934" iyz = "0.0"
-                   izz = "0.001154654"/>
-        </inertial>
       </link>
 
       <joint name="${name}_depth_joint" type="fixed">
@@ -58,14 +51,6 @@
       </joint>
 
       <link name="${name}_rgb_frame"/>
-        <inertial>
-            <mass value = "0.170"/>
-            <origin xyz = "0 0 0"/>
-            <inertia ixx = "0.001152600" ixy = "0.0" ixz = "0.0"
-                    iyy = "0.000148934" iyz = "0.0"
-                    izz = "0.001154654"/>
-        </inertial>
-      </link>
       <joint name="${name}_rgb_optical_joint" type="fixed">
         <origin xyz="0 0 0" rpy="${-M_PI/2} 0.0 ${-M_PI/2}" />
         <parent link="${name}_rgb_frame" />
@@ -97,6 +82,9 @@
               <far>3</far>
             </clip>
           </camera>
+          <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/simple_model</robotNamespace>
+          </plugin>
           <plugin name="${name}_camera_controller" filename="libgazebo_ros_openni_kinect.so">
             <imageTopicName>butia_vision/bvb/image_rgb</imageTopicName>
             <cameraInfoTopicName>butia_vision/bvb/camera_info</cameraInfoTopicName>
@@ -106,6 +94,15 @@
             <frameName>${name}_depth_optical_frame</frameName>
             <robotNamespace>/</robotNamespace>
           </plugin>
+          <transmission name="base_to_camera_trans">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="motor1">
+              <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+            <joint name="camera_joint_pepe">
+              <hardwareInterface>EffortJointInterface</hardwareInterface>
+            </joint>
+          </transmission>
         </sensor>
       </gazebo>
     </xacro:macro>
