@@ -26,6 +26,13 @@
             <mesh filename="package://hector_sensors_description/meshes/kinect_camera/kinect_camera_simple.stl"/>
           </geometry>
         </collision>
+        <inertial>
+          <mass value = "0.170"/>
+          <origin xyz = "0 0 0"/>
+          <inertia ixx = "0.001152600" ixy = "0.0" ixz = "0.0"
+                   iyy = "0.000148934" iyz = "0.0"
+                   izz = "0.001154654"/>
+        </inertial>
       </link>
 
       <joint name="${name}_depth_joint" type="fixed">
@@ -51,7 +58,14 @@
       </joint>
 
       <link name="${name}_rgb_frame"/>
-
+        <inertial>
+            <mass value = "0.170"/>
+            <origin xyz = "0 0 0"/>
+            <inertia ixx = "0.001152600" ixy = "0.0" ixz = "0.0"
+                    iyy = "0.000148934" iyz = "0.0"
+                    izz = "0.001154654"/>
+        </inertial>
+      </link>
       <joint name="${name}_rgb_optical_joint" type="fixed">
         <origin xyz="0 0 0" rpy="${-M_PI/2} 0.0 ${-M_PI/2}" />
         <parent link="${name}_rgb_frame" />
