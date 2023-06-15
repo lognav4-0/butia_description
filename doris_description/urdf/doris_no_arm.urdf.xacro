@@ -6,12 +6,15 @@
     <!--xacro:include filename="$(find doris_arm_description)/urdf/hand.xacro" /-->
     <xacro:include filename="$(find doris_dorso_description)/urdf/doris_dorso_description.urdf" />
     <!--xacro:include filename="$(find kinect2_description)/urdf/kinect2_description.urdf.xacro" /-->
+    <!--xacro:include filename="$(find kinect2_description)/urdf/kinect2_description.urdf.xacro" /-->
     <xacro:include filename="$(find doris_head_description)/urdf/doris_head.urdf" />
     <xacro:include filename="$(find doris_sensors_description)/urdf/hokuyo.urdf.xacro" />
     <xacro:include filename="$(find doris_sensors_description)/urdf/sick_lms1xx.urdf.xacro" />
     <xacro:include filename="$(find doris_sensors_description)/urdf/materials.xacro" />
     <xacro:include filename="$(find doris_sensors_description)/urdf/kinect_camera.urdf.xacro" />
+    <xacro:include filename="$(find doris_sensors_description)/urdf/realsense_camera.urdf.xacro" />
     <xacro:include filename="$(find hector_sensors_description)/urdf/realsense_d435_camera.urdf.xacro" />
+    <!-- <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro" /> -->
     <!--xacro:include filename="$(find lms1xx)/urdf/sick_lms1xx.urdf.xacro" /-->
     <link name="base_footprint"></link>
     <joint name="base_joint" type="fixed">
@@ -73,10 +76,19 @@
         <child link="kinect2_link" />
         <origin xyz="0.1362 0 0.8465" rpy="0 0 0" />
     </joint-->
+    <xacro:realsense_camera name="camera" parent="dorso_link">
+        <origin xyz="0.095 0 0.8" rpy="0 0 0" />
+    </xacro:realsense_camera>
+    <!-- <link name="camera_link" />
+    <joint name="camera_joint" type="fixed">
+        <parent link="dorso_link"/>
+        <child link="camera_link"/>
+        <origin xyz="0.1362 0 0.8465" rpy="-1.57 0 -1.57"/>
+    </joint> -->
 
     <!-- <xacro:sensor_kinect prefix="" name="kinect" parent="dorso_link" cam_px="-0.18" cam_py="0" cam_pz="0.01" cam_or="${-3.1416/2}" cam_op="0" cam_oy="${3.1416/2}"></xacro:sensor_kinect--> -->
     <xacro:kinect_camera name="kinect2" parent="dorso_link">
-        <origin xyz="0.1362 0 0.8465" rpy="-1.57 0 -1.57" />
+        <origin xyz="0.1412 0 0.8465" rpy="-1.57 0 -1.57" />
     </xacro:kinect_camera>
     <!--
     <xacro:realsense_d435_camera_with_mount name="realsense" parent="roll_2_link">
