@@ -73,20 +73,21 @@
         <child link="kinect2_link" />
         <origin xyz="0.1362 0 0.8465" rpy="0 0 0" />
     </joint-->
-    <!--joint name="dorso_kinect" type="fixed">
-        <parent link="dorso_link" />
-        <child link="kinect_link" />
-        <origin xyz="-0.18 0 0.01" rpy="0 ${3.1416/2} 3.1416" />
-    </joint-->
-    <!--xacro:sensor_kinect prefix="" name="kinect" parent="dorso_link" cam_px="-0.18" cam_py="0" cam_pz="0.01" cam_or="${-3.1416/2}" cam_op="0" cam_oy="${3.1416/2}"></xacro:sensor_kinect-->
+
+    <!-- <xacro:sensor_kinect prefix="" name="kinect" parent="dorso_link" cam_px="-0.18" cam_py="0" cam_pz="0.01" cam_or="${-3.1416/2}" cam_op="0" cam_oy="${3.1416/2}"></xacro:sensor_kinect--> -->
     <xacro:kinect_camera name="kinect2" parent="dorso_link">
-        <origin xyz="0.1362 0 0.8465" rpy="0 0 0" />
+        <origin xyz="0.1362 0 0.8465" rpy="-1.57 0 -1.57" />
     </xacro:kinect_camera>
     <!--
     <xacro:realsense_d435_camera_with_mount name="realsense" parent="roll_2_link">
         <origin xyz="0 0.03 0.1" rpy="-1.570 -1.570 0" />
     </xacro:realsense_d435_camera_with_mount>
     -->
+    <!-- <joint name="dorso_kinect" type="fixed">
+        <parent link="dorso_link" />
+        <child link="kinect2_root" />
+        <origin xyz="-0.0767 0 0.81" rpy="0 0 0" />
+    </joint> -->
     <joint name="dorso_head" type="fixed">
         <parent link="dorso_link" />
         <child link="head_root" />
