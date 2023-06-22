@@ -2,23 +2,30 @@
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
     <xacro:include filename="$(find hector_xacro_tools)/urdf/inertia_tensors.urdf.xacro"/>
-    <xacro:property name="M_PI" value="3.1415926535897931" />
+    <xacro:property name="M_PI" value="3.1415926535897931"/>
 
     <xacro:macro name="kinect_camera_model" params="name parent *origin">
-      <joint name="${name}_joint" type="fixed">
-        <xacro:insert_block name="origin" />
+      <joint name="kinect2_joint" type="continuous">
+        <parent link="${parent}" />
+        <child link="${name}_link" />
+        <origin xyz="0.1362 0 0.8465" rpy="-1.57 0 -1.57" />
+        <axis xyz="0 -1 0" />
+      </joint>
+      <!-- <joint name="${name}_joint" type="continuous">
+        <xacro:insert_block name="origin"/>
         <parent link="${parent}"/>
         <child link="${name}_link"/>
-      </joint>
+        <axis xyz="1 0 0" />
+      </joint> -->
 
       <link name="${name}_link">
         <xacro:inertial_sphere mass="0.01" diameter="0.07" />
-        <visual>
-          <origin xyz="0 0 0" rpy="0 0 0" />
+        <!-- <visual>
+          <origin xyz="0 0 0" rpy="0 -1.57 -1.57" />
           <geometry>
             <mesh filename="package://hector_sensors_description/meshes/kinect_camera/kinect_camera_simple.dae"/>
           </geometry>
-        </visual>
+        </visual> -->
         <collision>
           <origin xyz="0 0 0" rpy="0 0 0" />
           <geometry>
@@ -50,7 +57,6 @@
       </joint>
 
       <link name="${name}_rgb_frame"/>
-
       <joint name="${name}_rgb_optical_joint" type="fixed">
         <origin xyz="0 0 0" rpy="${-M_PI/2} 0.0 ${-M_PI/2}" />
         <parent link="${name}_rgb_frame" />
@@ -82,6 +88,9 @@
               <far>3</far>
             </clip>
           </camera>
+          <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/simple_model</robotNamespace>
+          </plugin>
           <plugin name="${name}_camera_controller" filename="libgazebo_ros_openni_kinect.so">
             <imageTopicName>butia_vision/bvb/image_rgb</imageTopicName>
             <cameraInfoTopicName>butia_vision/bvb/camera_info</cameraInfoTopicName>
@@ -91,6 +100,15 @@
             <frameName>${name}_depth_optical_frame</frameName>
             <robotNamespace>/</robotNamespace>
           </plugin>
+          <transmission name="base_to_camera_trans">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="motor1">
+              <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+            <joint name="kinect2_joint">
+              <hardwareInterface>EffortJointInterface</hardwareInterface>
+            </joint>
+          </transmission>
         </sensor>
       </gazebo>
     </xacro:macro>
