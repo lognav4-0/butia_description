@@ -87,9 +87,9 @@
     </joint> -->
 
     <!-- <xacro:sensor_kinect prefix="" name="kinect" parent="dorso_link" cam_px="-0.18" cam_py="0" cam_pz="0.01" cam_or="${-3.1416/2}" cam_op="0" cam_oy="${3.1416/2}"></xacro:sensor_kinect--> -->
-    <xacro:kinect_camera name="kinect2" parent="dorso_link">
+    <!--xacro:kinect_camera name="kinect2" parent="dorso_link">
         <origin xyz="0.1412 0 0.8465" rpy="-1.57 0 -1.57" />
-    </xacro:kinect_camera>
+    </xacro:kinect_camera-->
     <!--
     <xacro:realsense_d435_camera_with_mount name="realsense" parent="roll_2_link">
         <origin xyz="0 0.03 0.1" rpy="-1.570 -1.570 0" />
@@ -135,6 +135,14 @@
         </actuator>
     </transmission>
     <gazebo>
+        <plugin name="head_pan_mimic_joint" filename="libroboticsgroup_upatras_gazebo_mimic_joint_plugin.so">
+            <joint>head_pan_joint</joint>
+            <mimicJoint>horizontal_neck_joint</mimicJoint>
+        </plugin>
+        <plugin name="head_tilt_mimic_joint" filename="libroboticsgroup_upatras_gazebo_mimic_joint_plugin.so">
+            <joint>head_tilt_joint</joint>
+            <mimicJoint>vertical_neck_joint</mimicJoint>
+        </plugin>
         <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
 
             <!-- Plugin update rate in Hz -->

@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="$(find doris_sensors_description)/urdf/realsense_d435_camera.urdf.xacro" />
   <xacro:property name="M_PI" value="3.1415926535897931"/>
   
   <xacro:macro name="realsense_camera" params="name parent *origin">
@@ -103,7 +104,7 @@
             <inertia ixx="2.4688255642946E-05" ixy="1.60697655569215E-07" ixz="1.2993241737711E-08" iyy="3.66669176935806E-06" iyz="1.30215657011203E-08" izz="2.48602467766615E-05"/>
         </inertial>
       </link>
-      <link name="camera_link">
+      <!--link name="camera_link">
         <inertial>
             <origin rpy="0 0 0" xyz="-0.0132722976093535 0.00168171470080143 2.49829664994428E-06"/>
             <mass value="0.0381925651163644"/>
@@ -124,7 +125,10 @@
                 <mesh filename="package://doris_sensors_description/meshes/camera_link.STL"/>
             </geometry>
         </collision>
-      </link>
+      </link-->
+      <xacro:realsense_d435_camera name="camera" parent="head_tilt_link">
+          <origin rpy="0 0 0" xyz="0.06705 0.0125 0"/>
+      </xacro:realsense_d435_camera>
 
       <joint name="camera_joint_static" type="fixed">
           <origin rpy="0 0 0" xyz="0.06705 0 -0.00425"/>
@@ -132,12 +136,40 @@
           <child link="camera_link_static"/>
           <axis xyz="0 0 0"/>
       </joint>
-      <joint name="camera_joint" type="fixed">
+
+      <transmission name="trans_head_pan_joint">
+          <type>transmission_interface/SimpleTransmission</type>
+          <joint name="head_pan_joint">
+              <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+          </joint>
+          <actuator name="head_pan_joint_motor">
+              <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+              <mechanicalReduction>1</mechanicalReduction>
+          </actuator>
+      </transmission>
+      <transmission name="trans_head_tilt_joint">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="head_tilt_joint">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            </joint>
+            <actuator name="head_tilt_joint_motor">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+        </transmission>
+      <gazebo>
+            <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+                <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+                <legacyModeNS>true</legacyModeNS>
+                <robotNamespace>/doris_head</robotNamespace>
+            </plugin>
+        </gazebo>
+      <!--joint name="camera_joint" type="fixed">
           <origin rpy="0 0 0" xyz="0.06705 0 -0.00425"/>
           <parent link="head_tilt_link"/>
           <child link="camera_link"/>
           <axis xyz="0 0 0"/>
-      </joint>
+      </joint-->
       <!-- <xacro:sensor_d435 parent="head_tilt_link" use_nominal_extrinsics="false" add_plug="false" use_mesh="true">
           <origin xyz="0.06705 0 -0.00425" rpy="0 0 0"/>
       </xacro:sensor_d435> -->
