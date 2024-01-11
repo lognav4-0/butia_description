@@ -100,11 +100,13 @@
         <child link="kinect2_root" />
         <origin xyz="-0.0767 0 0.81" rpy="0 0 0" />
     </joint> -->
+
     <joint name="dorso_head" type="fixed">
         <parent link="dorso_link" />
         <child link="head_root" />
         <origin xyz="-0.0767 0 0.81" rpy="0 0 0" />
     </joint>
+
     <!--joint name="dorso_hokuyo" type="fixed">
         <parent link="dorso_link" />
         <child link="hokuyo_link" />

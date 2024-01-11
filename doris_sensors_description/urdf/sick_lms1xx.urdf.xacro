@@ -55,7 +55,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     </link>
 
     <gazebo reference="${frame}">
-      <sensor type="ray" name="${frame}">
+      <sensor type="gpu_ray" name="${frame}">
         <pose>0 0 0 0 0 0</pose>
         <visualize>false</visualize>
         <update_rate>${update_rate}</update_rate>
@@ -79,7 +79,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <stddev>0.001</stddev>
           </noise>
         </ray>
-        <plugin name="gazebo_ros_laser" filename="libgazebo_ros_laser.so">
+        <plugin name="gazebo_ros_laser" filename="libgazebo_ros_gpu_laser.so">
           <topicName>${topic}</topicName>
           <frameName>${frame}</frameName>
           <robotNamespace>${robot_namespace}</robotNamespace>
