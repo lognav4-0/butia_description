@@ -102,8 +102,8 @@ Note:
                     <horizontal_fov>${69.4 * M_PI/180.0}</horizontal_fov>
                     <image>
                         <format>B8G8R8</format>
-                        <width>640</width>
-                        <height>480</height>
+                        <width>1920</width>
+                        <height>1080</height>
                     </image>
                     <clip>
                         <near>${min_range}</near>

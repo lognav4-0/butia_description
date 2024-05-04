@@ -172,7 +172,7 @@
             <commandTopic>RosAria/cmd_vel</commandTopic>
 
             <!-- Topic to publish nav_msgs/Odometry messages, defaults to `odom` -->
-            <odometryTopic>odom</odometryTopic>
+            <odometryTopic>RosAria/pose</odometryTopic>
 
             <!-- Odometry frame, defaults to `odom` -->
             <odometryFrame>odom</odometryFrame>
