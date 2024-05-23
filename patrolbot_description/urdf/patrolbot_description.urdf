@@ -52,7 +52,7 @@
     <parent link="base_link" />
     <child link="left_wheel_link" />
     <axis xyz="1 0 0" />
-    <limit effort="200" velocity="6.28" />
+    <limit effort="400" velocity="12.6" />
   </joint>
   <link name="right_wheel_link">
     <inertial>

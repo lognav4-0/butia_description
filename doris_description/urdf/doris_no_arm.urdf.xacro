@@ -21,7 +21,7 @@
         <child link="base_link" />
         <parent link="base_footprint" />
     </joint>
-    <link name="frontal_caster_link">
+    <link name="frontal_left_caster_link">
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <mass value="0.1" />
@@ -34,12 +34,12 @@
             </geometry>
         </collision>
     </link>
-    <joint name="frontal_caster_joint" type="fixed">
+    <joint name="frontal_left_caster_joint" type="fixed">
         <parent link="base_link" />
-        <child link="frontal_caster_link" />
-        <origin xyz="0.2 0 0" rpy="0 0 0" />
+        <child link="frontal_left_caster_link" />
+        <origin xyz="0.2 -0.2 0" rpy="0 0 0" />
     </joint>
-    <link name="rear_caster_link">
+    <link name="frontal_right_caster_link">
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <mass value="0.1" />
@@ -52,10 +52,46 @@
             </geometry>
         </collision>
     </link>
-    <joint name="rear_caster_joint" type="fixed">
+    <joint name="frontal_right_caster_joint" type="fixed">
         <parent link="base_link" />
-        <child link="rear_caster_link" />
-        <origin xyz="-0.2 0 0" rpy="0 0 0" />
+        <child link="frontal_right_caster_link" />
+        <origin xyz="0.2 0.2 0" rpy="0 0 0" />
+    </joint>
+    <link name="rear_left_caster_link">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="0.1" />
+            <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+        </inertial>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.05"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="rear_left_caster_joint" type="fixed">
+        <parent link="base_link" />
+        <child link="rear_left_caster_link" />
+        <origin xyz="-0.2 -0.2 0" rpy="0 0 0" />
+    </joint>
+    <link name="rear_right_caster_link">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="0.1" />
+            <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+        </inertial>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <sphere radius="0.05"/>
+            </geometry>
+        </collision>
+    </link>
+    <joint name="rear_right_caster_joint" type="fixed">
+        <parent link="base_link" />
+        <child link="rear_right_caster_link" />
+        <origin xyz="-0.2 0.2 0" rpy="0 0 0" />
     </joint>
     <!--
     <xacro:hand ns="doris" rpy="0 0 1.570" xyz="0 0 0.1" connected_to="roll_2_link" safety_distance="0.00" use_cylinder_collision_model="false" />
@@ -163,10 +199,10 @@
             <wheelDiameter>0.2</wheelDiameter>
 
             <!-- Wheel acceleration, in rad/s^2, defaults to 0.0 rad/s^2 -->
-            <wheelAcceleration>1.0</wheelAcceleration>
+            <wheelAcceleration>12.6</wheelAcceleration>
 
             <!-- Maximum torque which the wheels can produce, in Nm, defaults to 5 Nm -->
-            <wheelTorque>200</wheelTorque>
+            <wheelTorque>400</wheelTorque>
 
             <!-- Topic to receive geometry_msgs/Twist message commands, defaults to `cmd_vel` -->
             <commandTopic>RosAria/cmd_vel</commandTopic>
@@ -218,14 +254,26 @@
         <mu1>0.95</mu1>
         <mu2>0.95</mu2>
     </gazebo>
-    <gazebo reference="frontal_caster_link">
+    <gazebo reference="frontal_left_caster_link">
+        <mu1>0.000000</mu1>
+        <mu2>0.000000</mu2>
+    </gazebo>
+    <gazebo reference="frontal_right_caster_link">
+        <mu1>0.000000</mu1>
+        <mu2>0.000000</mu2>
+    </gazebo>
+    <gazebo reference="rear_left_caster_link">
+        <mu1>0.000000</mu1>
+        <mu2>0.000000</mu2>
+    </gazebo>
+    <gazebo reference="rear_right_caster_link">
+        <mu1>0.000000</mu1>
+        <mu2>0.000000</mu2>
+    </gazebo>
+    <!--gazebo reference="hokuyo_link">
         <mu1>0.000001</mu1>
         <mu2>0.000001</mu2>
-    </gazebo>
-    <gazebo reference="rear_caster_link">
-        <mu1>0.000001</mu1>
-        <mu2>0.000001</mu2>
-    </gazebo>
+    </gazebo-->
     <gazebo reference="dorso_link">
         <material>Gazebo/DarkGray</material>
     </gazebo>

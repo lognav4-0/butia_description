@@ -98,7 +98,7 @@ Note:
         <gazebo reference="${name}_link">
             <sensor type="depth" name="${name}">
                 <update_rate>${update_rate}</update_rate>
-                <camera>
+                <camera name="${name}">
                     <horizontal_fov>${69.4 * M_PI/180.0}</horizontal_fov>
                     <image>
                         <format>B8G8R8</format>
@@ -119,6 +119,8 @@ Note:
                     <pointCloudTopicName>${depth_points_topic}</pointCloudTopicName>
                     <frameName>${name}_${frame_name}_optical_frame</frameName>
                     <useDepth16UC1Format>true</useDepth16UC1Format>
+                    <pointCloudCutoff>${min_range}</pointCloudCutoff>
+                    <pointCloudCutoffMax>${max_range}</pointCloudCutoffMax>
                     <!-- Important information about frames: Currently, this plugin only supports simulation of color image and depth image/cloud from a single frame.
             This frame is given in the <gazebo reference=""> tag above and is set to the ${name}_link which coincides with the depth camera frame. The camera axis is the X-axis. ROS requires an optical frame 
             with the Z-axis as camera axis. It is advised to use the depth_optical_frame for this purpose (frame_name="depth"), even though camera images will have the same frame.
@@ -137,7 +139,7 @@ Note:
             <xacro:insert_block name="origin" />
         </xacro:realsense_d435_camera_model>
 
-        <xacro:realsense_d435_camera_gazebo_plugin_macro name="${name}" parent="${parent}" image_topic="image_raw" depth_points_topic="depth/points" min_range="0.3" max_range="9.0" update_rate="20"/>
+        <xacro:realsense_d435_camera_gazebo_plugin_macro name="${name}" parent="${parent}" image_topic="image_raw" depth_points_topic="depth/points" min_range="0.01" max_range="9.0" update_rate="60"/>
     </xacro:macro>
 
     <!--
@@ -148,7 +150,7 @@ Note:
             <xacro:insert_block name="origin" />
         </xacro:realsense_d435_camera_model_with_mount>
 
-        <xacro:realsense_d435_camera_gazebo_plugin_macro name="${name}" parent="${parent}" image_topic="image_raw" depth_points_topic="depth/points" min_range="0.3" max_range="9.0" update_rate="20"/>
+        <xacro:realsense_d435_camera_gazebo_plugin_macro name="${name}" parent="${parent}" image_topic="image_raw" depth_points_topic="depth/points" min_range="0.01" max_range="9.0" update_rate="60"/>
     </xacro:macro>
 
     <!--
@@ -160,7 +162,7 @@ Note:
             <xacro:insert_block name="origin" />
         </xacro:realsense_d435_camera_model_no_geom>
 
-        <xacro:realsense_camera_gazebo_plugin_macro name="${name}" parent="${parent}" image_topic="image_raw" depth_points_topic="depth/points" min_range="0.3" max_range="9.0" update_rate="20"/>
+        <xacro:realsense_camera_gazebo_plugin_macro name="${name}" parent="${parent}" image_topic="image_raw" depth_points_topic="depth/points" min_range="0.01" max_range="9.0" update_rate="60"/>
     </xacro:macro>
 
     <xacro:macro name="realsense_d435_camera_no_geom_comprehensive_params" params="name parent *origin image_topic depth_topic:=image_raw depth_points_topic frame_name:=color min_range max_range update_rate">
