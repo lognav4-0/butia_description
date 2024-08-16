@@ -2,8 +2,8 @@
 <robot name="sensor_hokuyo"
   xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:macro name="sensor_hokuyo" params="parent xyz rpy">
-    <link name="hokuyo_link">
+  <xacro:macro name="sensor_hokuyo" params="parent xyz rpy name">
+    <link name="hokuyo_${name}_link">
       <!--collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
@@ -22,19 +22,19 @@
         <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
       </inertial>
     </link>
-    <joint name="hokuyo_joint" type="fixed">
+    <joint name="hokuyo_${name}_joint" type="fixed">
       <!--<axis xyz="0 0 1" />-->
       <origin xyz="${xyz}" rpy="${rpy}"/>
       <parent link="${parent}"/>
-      <child link="hokuyo_link"/>
+      <child link="hokuyo_${name}_link"/>
     </joint>
     <!-- Hokuyo sensor for simulation -->
     <xacro:sim_laser_range_finder/>
   </xacro:macro>
   <!-- ULM-30LX Hokuyo Laser Range Finder -->
   <xacro:macro name="sim_laser_range_finder">
-    <gazebo reference="hokuyo_link">
-      <sensor type="gpu_ray" name="head_hokuyo_sensor">
+    <gazebo reference="hokuyo_${name}_link">
+      <sensor type="ray" name="head_hokuyo_sensor">
         <pose>0 0 0 0 0 0</pose>
         <visualize>false</visualize>
         <update_rate>40</update_rate>
@@ -64,7 +64,7 @@
         </ray>
         <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so">
           <topicName>scan2</topicName>
-          <frameName>hokuyo_link</frameName>
+          <frameName>hokuyo_${name}_link</frameName>
           <robotNamespace>/</robotNamespace>
         </plugin>
       </sensor>
