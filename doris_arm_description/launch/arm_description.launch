@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-    <include file="$(find interbotix_xsarm_moveit)/launch/xsarm_moveit.launch">
-        <arg name="model" value="$(find doris_arm_description)/urdf/vx300.urdf.xacro"/>
-        <arg name="robot_model" value="vx300"/>
-        <arg name="base_link_frame" value="world"/>
-    </include>
-</launch>
