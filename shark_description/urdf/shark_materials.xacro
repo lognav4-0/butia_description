@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+Copied from ROS1 example:
+https://github.com/ros-simulation/gazebo_ros_demos/blob/kinetic-devel/rrbot_description/urdf/materials.xacro
+-->
+<robot>
+  
+  <material name="blue">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+  <material name="black">
+    <color rgba="0 0 0 1"/>
+  </material>
+  <material name="darkgray">
+    <color rgba="0.2 0.2 0.2 1"/>
+  </material>
+  <material name="lightgray">
+    <color rgba="0.8 0.8 0.8 1"/>
+  </material>
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+  <material name="red">
+    <color rgba="0.8 0.0 0.0 1.0"/>
+  </material>
+
+</robot>

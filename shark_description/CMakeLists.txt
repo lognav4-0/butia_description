@@ -27,6 +27,8 @@ install( DIRECTORY config/
          DESTINATION share/${PROJECT_NAME}/config)
 install( DIRECTORY urdf/
          DESTINATION share/${PROJECT_NAME}/urdf)
+install( DIRECTORY ros2_control/
+         DESTINATION share/${PROJECT_NAME}/ros2_control)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
