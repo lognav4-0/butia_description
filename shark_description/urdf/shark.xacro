@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!-- Basic differential drive mobile base -->
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="shark_mb">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="shark">
 
   <xacro:include filename="$(find shark_description)/urdf/shark_description.xacro" />
 
