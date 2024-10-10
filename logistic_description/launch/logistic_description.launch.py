@@ -36,9 +36,9 @@ def generate_launch_description():
 
     robot_controllers = PathJoinSubstitution(
         [
-            FindPackageShare("hoverboard_driver"),
+            FindPackageShare("shark_description"),
             "config",
-            "hoverboard_controllers.yaml",
+            "shark_controllers.yaml",
         ]
     )
 

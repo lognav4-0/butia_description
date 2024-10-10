@@ -3,7 +3,7 @@
   <ros2_control name="shark" type="system">
     <hardware>
       <plugin>hoverboard_driver/hoverboard_driver</plugin>
-      <param name="wheel_radius">0.0825</param>
+      <param name="wheel_radius">0.055</param>
       <param name="max_velocity">1.0</param>
       <param name="device">/dev/ttyUSB0</param>
     </hardware>

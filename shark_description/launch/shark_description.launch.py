@@ -36,9 +36,9 @@ def generate_launch_description():
 
     robot_controllers = PathJoinSubstitution(
         [
-            FindPackageShare("hoverboard_driver"),
+            FindPackageShare("shark_description"),
             "config",
-            "hoverboard_controllers.yaml",
+            "shark_controllers.yaml",
         ]
     )
 
@@ -52,7 +52,6 @@ def generate_launch_description():
         parameters=[robot_description, robot_controllers],
         output="both",
     )
-
 
     robot_state_pub_node = Node(
         package="robot_state_publisher",
@@ -110,6 +109,7 @@ def generate_launch_description():
         control_node,
         robot_state_pub_node,
         joint_state_publisher_node,
+        rviz_node,
         joint_state_broadcaster_spawner,
         delay_rviz_after_joint_state_broadcaster_spawner,
         delay_robot_controller_spawner_after_joint_state_broadcaster_spawner,
