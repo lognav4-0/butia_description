@@ -8,7 +8,7 @@ from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 
 def generate_launch_description():
-    urg_node_dir = get_package_share_directory('urg_node')
+    urg_node_dir = get_package_share_directory('sensors_description')
 
     return LaunchDescription([
         # Argumento para escolher a interface do sensor (serial ou ethernet)
@@ -21,7 +21,7 @@ def generate_launch_description():
         # Argumento para abrir o RViz ou não
         DeclareLaunchArgument(
             'use_rviz',
-            default_value='false',
+            default_value='true',
             description='Flag to enable RViz'
         ),
 
@@ -29,7 +29,7 @@ def generate_launch_description():
         OpaqueFunction(function=lambda context: [
             SetLaunchConfiguration(
                 'param', os.path.join(
-                    urg_node_dir, 'launch',
+                    urg_node_dir, 'config',
                     'urg_node_' + context.launch_configurations['sensor_interface'] + '.yaml'
                 )
             )
