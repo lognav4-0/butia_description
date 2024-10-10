@@ -13,7 +13,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://doris_sensors_description/meshes/sensors/hokuyo.dae"/>
+          <mesh filename="package://sensors_description/meshes/hokuyo.dae"/>
         </geometry>
       </visual>
       <inertial>
