@@ -4,16 +4,16 @@
 
   <xacro:macro name="sensor_hokuyo" params="parent xyz rpy name">
     <link name="hokuyo_${name}_link">
-      <!--collision>
+      <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <box size="0.01 0.01 0.01"/>
+          <box size="0.07 0.055 0.085"/>
         </geometry>
-      </collision-->
+      </collision>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://sensors_description/meshes/hokuyo.dae"/>
+          <box size="0.07 0.055 0.085"/>
         </geometry>
       </visual>
       <inertial>
