@@ -19,4 +19,15 @@
 
     <xacro:sensor_hokuyo parent="base_link" xyz="${base_len/2 + 0.017 + 0.024} 0 ${0.02 - base_height/2}" rpy="3.14 0 0" name="ground"/>
 
+    <xacro:macro name="imu" params="parent xyz rpy">
+    <link name="imu_link"/>
+    <joint name="imu_joint" type="fixed">
+      <parent link="${parent}"/>
+      <child link="imu_link"/>
+      <origin xyz="${xyz}" rpy="${rpy}"/>
+    </joint>
+    </xacro:macro>
+
+    <xacro:imu parent="base_link" xyz="${base_len/2 + 0.0625} 0 ${0.02 - base_height/2}" rpy="0 0 0"/>
+
 </robot>

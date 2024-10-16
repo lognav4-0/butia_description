@@ -21,7 +21,7 @@ def generate_launch_description():
         # Argumento para abrir o RViz ou não
         DeclareLaunchArgument(
             'use_rviz',
-            default_value='true',
+            default_value='false',
             description='Flag to enable RViz'
         ),
 
