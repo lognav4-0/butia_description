@@ -1,8 +1,12 @@
 from launch import LaunchDescription
+import os
 from launch.actions import DeclareLaunchArgument, RegisterEventHandler
 from launch.conditions import IfCondition
 from launch.event_handlers import OnProcessExit
 from launch.substitutions import Command, FindExecutable, PathJoinSubstitution, LaunchConfiguration
+from launch.actions import IncludeLaunchDescription
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from ament_index_python.packages import get_package_share_directory
 
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
@@ -14,7 +18,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "gui",
-            default_value="true",
+            default_value="false",
             description="Start RViz2 automatically with this launch file.",
         )
     )
@@ -36,10 +40,16 @@ def generate_launch_description():
 
     robot_controllers = PathJoinSubstitution(
         [
-            FindPackageShare("shark_description"),
+            FindPackageShare("logistic_description"),
             "config",
-            "shark_controllers.yaml",
+            "logistic_controllers.yaml",
         ]
+    )
+
+    robot_localization = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(get_package_share_directory('freedom_navigation'), 'config', 'robot_localization.launch.py')
+        )
     )
 
     rviz_config_file = PathJoinSubstitution(
@@ -52,7 +62,6 @@ def generate_launch_description():
         parameters=[robot_description, robot_controllers],
         output="both",
     )
-
 
     robot_state_pub_node = Node(
         package="robot_state_publisher",
@@ -113,6 +122,7 @@ def generate_launch_description():
         joint_state_broadcaster_spawner,
         delay_rviz_after_joint_state_broadcaster_spawner,
         delay_robot_controller_spawner_after_joint_state_broadcaster_spawner,
+        robot_localization,
     ]
 
     return LaunchDescription(declared_arguments + nodes)
