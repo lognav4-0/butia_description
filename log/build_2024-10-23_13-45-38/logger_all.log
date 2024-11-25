@@ -1,0 +1,277 @@
+[0.168s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--packages-select', 'freedom_navigation', 'hoverboard_driver', 'sensors_description', 'shark_description', 'logistic_description', 'ros2_control_demo_description', 'ros2_control_demo_testing', 'ros2_control_demo_example_2', 'velodyne_description', 'urg_node', 'bno055', 'joy2twist']
+[0.168s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=12, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=['freedom_navigation', 'hoverboard_driver', 'sensors_description', 'shark_description', 'logistic_description', 'ros2_control_demo_description', 'ros2_control_demo_testing', 'ros2_control_demo_example_2', 'velodyne_description', 'urg_node', 'bno055', 'joy2twist'], packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0xffffa95a6770>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffffa977ee60>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffffa977ee60>>, mixin_verb=('build',))
+[0.434s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.434s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.435s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.435s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.435s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.435s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.435s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/freedom/freedom_ws/src/butia_description'
+[0.435s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.435s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.435s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.435s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.435s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.436s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.436s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.436s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.436s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.452s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.452s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.452s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.452s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.452s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(boris_description) by extensions ['ignore', 'ignore_ament_install']
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(boris_description) by extension 'ignore'
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(boris_description) by extension 'ignore_ament_install'
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(boris_description) by extensions ['colcon_pkg']
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(boris_description) by extension 'colcon_pkg'
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(boris_description) by extensions ['colcon_meta']
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(boris_description) by extension 'colcon_meta'
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(boris_description) by extensions ['ros']
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(boris_description) by extension 'ros'
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(boris_description) by extensions ['cmake', 'python']
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(boris_description) by extension 'cmake'
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(boris_description) by extension 'python'
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(boris_description) by extensions ['python_setup_py']
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(boris_description) by extension 'python_setup_py'
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.454s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.455s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.455s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.455s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.455s] Level 1:colcon.colcon_core.package_identification:_identify(logistic_description) by extensions ['ignore', 'ignore_ament_install']
+[0.455s] Level 1:colcon.colcon_core.package_identification:_identify(logistic_description) by extension 'ignore'
+[0.455s] Level 1:colcon.colcon_core.package_identification:_identify(logistic_description) by extension 'ignore_ament_install'
+[0.455s] Level 1:colcon.colcon_core.package_identification:_identify(logistic_description) by extensions ['colcon_pkg']
+[0.455s] Level 1:colcon.colcon_core.package_identification:_identify(logistic_description) by extension 'colcon_pkg'
+[0.455s] Level 1:colcon.colcon_core.package_identification:_identify(logistic_description) by extensions ['colcon_meta']
+[0.455s] Level 1:colcon.colcon_core.package_identification:_identify(logistic_description) by extension 'colcon_meta'
+[0.455s] Level 1:colcon.colcon_core.package_identification:_identify(logistic_description) by extensions ['ros']
+[0.455s] Level 1:colcon.colcon_core.package_identification:_identify(logistic_description) by extension 'ros'
+[0.459s] DEBUG:colcon.colcon_core.package_identification:Package 'logistic_description' with type 'ros.ament_cmake' and name 'logistic_description'
+[0.459s] Level 1:colcon.colcon_core.package_identification:_identify(sensors_description) by extensions ['ignore', 'ignore_ament_install']
+[0.459s] Level 1:colcon.colcon_core.package_identification:_identify(sensors_description) by extension 'ignore'
+[0.459s] Level 1:colcon.colcon_core.package_identification:_identify(sensors_description) by extension 'ignore_ament_install'
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(sensors_description) by extensions ['colcon_pkg']
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(sensors_description) by extension 'colcon_pkg'
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(sensors_description) by extensions ['colcon_meta']
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(sensors_description) by extension 'colcon_meta'
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(sensors_description) by extensions ['ros']
+[0.460s] Level 1:colcon.colcon_core.package_identification:_identify(sensors_description) by extension 'ros'
+[0.461s] DEBUG:colcon.colcon_core.package_identification:Package 'sensors_description' with type 'ros.ament_cmake' and name 'sensors_description'
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(shark_description) by extensions ['ignore', 'ignore_ament_install']
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(shark_description) by extension 'ignore'
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(shark_description) by extension 'ignore_ament_install'
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(shark_description) by extensions ['colcon_pkg']
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(shark_description) by extension 'colcon_pkg'
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(shark_description) by extensions ['colcon_meta']
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(shark_description) by extension 'colcon_meta'
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(shark_description) by extensions ['ros']
+[0.461s] Level 1:colcon.colcon_core.package_identification:_identify(shark_description) by extension 'ros'
+[0.462s] DEBUG:colcon.colcon_core.package_identification:Package 'shark_description' with type 'ros.ament_cmake' and name 'shark_description'
+[0.462s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.462s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.462s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.462s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.462s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.463s] WARNING:colcon.colcon_core.package_selection:ignoring unknown package 'freedom_navigation' in --packages-select
+[0.463s] WARNING:colcon.colcon_core.package_selection:ignoring unknown package 'hoverboard_driver' in --packages-select
+[0.463s] WARNING:colcon.colcon_core.package_selection:ignoring unknown package 'ros2_control_demo_description' in --packages-select
+[0.463s] WARNING:colcon.colcon_core.package_selection:ignoring unknown package 'ros2_control_demo_testing' in --packages-select
+[0.463s] WARNING:colcon.colcon_core.package_selection:ignoring unknown package 'ros2_control_demo_example_2' in --packages-select
+[0.463s] WARNING:colcon.colcon_core.package_selection:ignoring unknown package 'velodyne_description' in --packages-select
+[0.463s] WARNING:colcon.colcon_core.package_selection:ignoring unknown package 'urg_node' in --packages-select
+[0.463s] WARNING:colcon.colcon_core.package_selection:ignoring unknown package 'bno055' in --packages-select
+[0.463s] WARNING:colcon.colcon_core.package_selection:ignoring unknown package 'joy2twist' in --packages-select
+[0.521s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.521s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.525s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 341 installed packages in /opt/ros/humble
+[0.527s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.589s] Level 5:colcon.colcon_core.verb:set package 'logistic_description' build argument 'cmake_args' from command line to 'None'
+[0.590s] Level 5:colcon.colcon_core.verb:set package 'logistic_description' build argument 'cmake_target' from command line to 'None'
+[0.590s] Level 5:colcon.colcon_core.verb:set package 'logistic_description' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.590s] Level 5:colcon.colcon_core.verb:set package 'logistic_description' build argument 'cmake_clean_cache' from command line to 'False'
+[0.590s] Level 5:colcon.colcon_core.verb:set package 'logistic_description' build argument 'cmake_clean_first' from command line to 'False'
+[0.590s] Level 5:colcon.colcon_core.verb:set package 'logistic_description' build argument 'cmake_force_configure' from command line to 'False'
+[0.590s] Level 5:colcon.colcon_core.verb:set package 'logistic_description' build argument 'ament_cmake_args' from command line to 'None'
+[0.590s] Level 5:colcon.colcon_core.verb:set package 'logistic_description' build argument 'catkin_cmake_args' from command line to 'None'
+[0.590s] Level 5:colcon.colcon_core.verb:set package 'logistic_description' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.590s] DEBUG:colcon.colcon_core.verb:Building package 'logistic_description' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/freedom/freedom_ws/src/butia_description/build/logistic_description', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/freedom/freedom_ws/src/butia_description/install/logistic_description', 'merge_install': False, 'path': '/home/freedom/freedom_ws/src/butia_description/logistic_description', 'symlink_install': False, 'test_result_base': None}
+[0.591s] Level 5:colcon.colcon_core.verb:set package 'sensors_description' build argument 'cmake_args' from command line to 'None'
+[0.591s] Level 5:colcon.colcon_core.verb:set package 'sensors_description' build argument 'cmake_target' from command line to 'None'
+[0.591s] Level 5:colcon.colcon_core.verb:set package 'sensors_description' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.591s] Level 5:colcon.colcon_core.verb:set package 'sensors_description' build argument 'cmake_clean_cache' from command line to 'False'
+[0.591s] Level 5:colcon.colcon_core.verb:set package 'sensors_description' build argument 'cmake_clean_first' from command line to 'False'
+[0.591s] Level 5:colcon.colcon_core.verb:set package 'sensors_description' build argument 'cmake_force_configure' from command line to 'False'
+[0.591s] Level 5:colcon.colcon_core.verb:set package 'sensors_description' build argument 'ament_cmake_args' from command line to 'None'
+[0.591s] Level 5:colcon.colcon_core.verb:set package 'sensors_description' build argument 'catkin_cmake_args' from command line to 'None'
+[0.591s] Level 5:colcon.colcon_core.verb:set package 'sensors_description' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.591s] DEBUG:colcon.colcon_core.verb:Building package 'sensors_description' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/freedom/freedom_ws/src/butia_description/build/sensors_description', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/freedom/freedom_ws/src/butia_description/install/sensors_description', 'merge_install': False, 'path': '/home/freedom/freedom_ws/src/butia_description/sensors_description', 'symlink_install': False, 'test_result_base': None}
+[0.591s] Level 5:colcon.colcon_core.verb:set package 'shark_description' build argument 'cmake_args' from command line to 'None'
+[0.591s] Level 5:colcon.colcon_core.verb:set package 'shark_description' build argument 'cmake_target' from command line to 'None'
+[0.591s] Level 5:colcon.colcon_core.verb:set package 'shark_description' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.591s] Level 5:colcon.colcon_core.verb:set package 'shark_description' build argument 'cmake_clean_cache' from command line to 'False'
+[0.591s] Level 5:colcon.colcon_core.verb:set package 'shark_description' build argument 'cmake_clean_first' from command line to 'False'
+[0.592s] Level 5:colcon.colcon_core.verb:set package 'shark_description' build argument 'cmake_force_configure' from command line to 'False'
+[0.592s] Level 5:colcon.colcon_core.verb:set package 'shark_description' build argument 'ament_cmake_args' from command line to 'None'
+[0.592s] Level 5:colcon.colcon_core.verb:set package 'shark_description' build argument 'catkin_cmake_args' from command line to 'None'
+[0.592s] Level 5:colcon.colcon_core.verb:set package 'shark_description' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.592s] DEBUG:colcon.colcon_core.verb:Building package 'shark_description' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/freedom/freedom_ws/src/butia_description/build/shark_description', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/freedom/freedom_ws/src/butia_description/install/shark_description', 'merge_install': False, 'path': '/home/freedom/freedom_ws/src/butia_description/shark_description', 'symlink_install': False, 'test_result_base': None}
+[0.592s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.594s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.595s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/freedom/freedom_ws/src/butia_description/logistic_description' with build type 'ament_cmake'
+[0.595s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/freedom/freedom_ws/src/butia_description/logistic_description'
+[0.598s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.598s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.598s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.603s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/freedom/freedom_ws/src/butia_description/sensors_description' with build type 'ament_cmake'
+[0.603s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/freedom/freedom_ws/src/butia_description/sensors_description'
+[0.604s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.604s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.608s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/freedom/freedom_ws/src/butia_description/shark_description' with build type 'ament_cmake'
+[0.608s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/freedom/freedom_ws/src/butia_description/shark_description'
+[0.609s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.609s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.620s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/freedom/freedom_ws/src/butia_description/build/logistic_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/freedom/freedom_ws/src/butia_description/logistic_description -DCMAKE_INSTALL_PREFIX=/home/freedom/freedom_ws/src/butia_description/install/logistic_description
+[0.626s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/freedom/freedom_ws/src/butia_description/build/sensors_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/freedom/freedom_ws/src/butia_description/sensors_description -DCMAKE_INSTALL_PREFIX=/home/freedom/freedom_ws/src/butia_description/install/sensors_description
+[0.630s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/freedom/freedom_ws/src/butia_description/build/shark_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/freedom/freedom_ws/src/butia_description/shark_description -DCMAKE_INSTALL_PREFIX=/home/freedom/freedom_ws/src/butia_description/install/shark_description
+[1.713s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/freedom/freedom_ws/src/butia_description/build/sensors_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/freedom/freedom_ws/src/butia_description/sensors_description -DCMAKE_INSTALL_PREFIX=/home/freedom/freedom_ws/src/butia_description/install/sensors_description
+[1.716s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/freedom/freedom_ws/src/butia_description/build/sensors_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/freedom/freedom_ws/src/butia_description/build/sensors_description -- -j12 -l12
+[1.723s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/freedom/freedom_ws/src/butia_description/build/logistic_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/freedom/freedom_ws/src/butia_description/logistic_description -DCMAKE_INSTALL_PREFIX=/home/freedom/freedom_ws/src/butia_description/install/logistic_description
+[1.726s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/freedom/freedom_ws/src/butia_description/build/logistic_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/freedom/freedom_ws/src/butia_description/build/logistic_description -- -j12 -l12
+[1.770s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/freedom/freedom_ws/src/butia_description/build/shark_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/freedom/freedom_ws/src/butia_description/shark_description -DCMAKE_INSTALL_PREFIX=/home/freedom/freedom_ws/src/butia_description/install/shark_description
+[1.773s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/freedom/freedom_ws/src/butia_description/build/shark_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/freedom/freedom_ws/src/butia_description/build/shark_description -- -j12 -l12
+[1.780s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/freedom/freedom_ws/src/butia_description/build/sensors_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/freedom/freedom_ws/src/butia_description/build/sensors_description -- -j12 -l12
+[1.794s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/freedom/freedom_ws/src/butia_description/build/logistic_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/freedom/freedom_ws/src/butia_description/build/logistic_description -- -j12 -l12
+[1.828s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/freedom/freedom_ws/src/butia_description/build/sensors_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/freedom/freedom_ws/src/butia_description/build/sensors_description
+[1.833s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/freedom/freedom_ws/src/butia_description/build/logistic_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/freedom/freedom_ws/src/butia_description/build/logistic_description
+[1.835s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/freedom/freedom_ws/src/butia_description/build/shark_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/freedom/freedom_ws/src/butia_description/build/shark_description -- -j12 -l12
+[1.853s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(logistic_description)
+[1.854s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/freedom/freedom_ws/src/butia_description/build/logistic_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/freedom/freedom_ws/src/butia_description/build/logistic_description
+[1.858s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/logistic_description' for CMake module files
+[1.859s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/logistic_description' for CMake config files
+[1.860s] Level 1:colcon.colcon_core.shell:create_environment_hook('logistic_description', 'cmake_prefix_path')
+[1.860s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/freedom/freedom_ws/src/butia_description/install/logistic_description/share/logistic_description/hook/cmake_prefix_path.ps1'
+[1.862s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/freedom/freedom_ws/src/butia_description/install/logistic_description/share/logistic_description/hook/cmake_prefix_path.dsv'
+[1.863s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/freedom/freedom_ws/src/butia_description/install/logistic_description/share/logistic_description/hook/cmake_prefix_path.sh'
+[1.866s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/logistic_description/bin'
+[1.866s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/logistic_description/lib/pkgconfig/logistic_description.pc'
+[1.867s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/logistic_description/lib/python3.10/site-packages'
+[1.867s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/logistic_description/bin'
+[1.868s] INFO:colcon.colcon_core.shell:Creating package script '/home/freedom/freedom_ws/src/butia_description/install/logistic_description/share/logistic_description/package.ps1'
+[1.870s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/freedom/freedom_ws/src/butia_description/install/logistic_description/share/logistic_description/package.dsv'
+[1.872s] INFO:colcon.colcon_core.shell:Creating package script '/home/freedom/freedom_ws/src/butia_description/install/logistic_description/share/logistic_description/package.sh'
+[1.874s] INFO:colcon.colcon_core.shell:Creating package script '/home/freedom/freedom_ws/src/butia_description/install/logistic_description/share/logistic_description/package.bash'
+[1.876s] INFO:colcon.colcon_core.shell:Creating package script '/home/freedom/freedom_ws/src/butia_description/install/logistic_description/share/logistic_description/package.zsh'
+[1.878s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/freedom/freedom_ws/src/butia_description/install/logistic_description/share/colcon-core/packages/logistic_description)
+[1.885s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/freedom/freedom_ws/src/butia_description/build/shark_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/freedom/freedom_ws/src/butia_description/build/shark_description
+[1.886s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(sensors_description)
+[1.887s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/sensors_description' for CMake module files
+[1.888s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/freedom/freedom_ws/src/butia_description/build/sensors_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/freedom/freedom_ws/src/butia_description/build/sensors_description
+[1.889s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/sensors_description' for CMake config files
+[1.890s] Level 1:colcon.colcon_core.shell:create_environment_hook('sensors_description', 'cmake_prefix_path')
+[1.890s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/freedom/freedom_ws/src/butia_description/install/sensors_description/share/sensors_description/hook/cmake_prefix_path.ps1'
+[1.891s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/freedom/freedom_ws/src/butia_description/install/sensors_description/share/sensors_description/hook/cmake_prefix_path.dsv'
+[1.892s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/freedom/freedom_ws/src/butia_description/install/sensors_description/share/sensors_description/hook/cmake_prefix_path.sh'
+[1.893s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/sensors_description/bin'
+[1.893s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/sensors_description/lib/pkgconfig/sensors_description.pc'
+[1.894s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/sensors_description/lib/python3.10/site-packages'
+[1.894s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/sensors_description/bin'
+[1.895s] INFO:colcon.colcon_core.shell:Creating package script '/home/freedom/freedom_ws/src/butia_description/install/sensors_description/share/sensors_description/package.ps1'
+[1.896s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/freedom/freedom_ws/src/butia_description/install/sensors_description/share/sensors_description/package.dsv'
+[1.898s] INFO:colcon.colcon_core.shell:Creating package script '/home/freedom/freedom_ws/src/butia_description/install/sensors_description/share/sensors_description/package.sh'
+[1.899s] INFO:colcon.colcon_core.shell:Creating package script '/home/freedom/freedom_ws/src/butia_description/install/sensors_description/share/sensors_description/package.bash'
+[1.901s] INFO:colcon.colcon_core.shell:Creating package script '/home/freedom/freedom_ws/src/butia_description/install/sensors_description/share/sensors_description/package.zsh'
+[1.902s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/freedom/freedom_ws/src/butia_description/install/sensors_description/share/colcon-core/packages/sensors_description)
+[1.906s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(shark_description)
+[1.907s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/shark_description' for CMake module files
+[1.908s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/freedom/freedom_ws/src/butia_description/build/shark_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/freedom/freedom_ws/src/butia_description/build/shark_description
+[1.909s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/shark_description' for CMake config files
+[1.909s] Level 1:colcon.colcon_core.shell:create_environment_hook('shark_description', 'cmake_prefix_path')
+[1.910s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/freedom/freedom_ws/src/butia_description/install/shark_description/share/shark_description/hook/cmake_prefix_path.ps1'
+[1.911s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/freedom/freedom_ws/src/butia_description/install/shark_description/share/shark_description/hook/cmake_prefix_path.dsv'
+[1.911s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/freedom/freedom_ws/src/butia_description/install/shark_description/share/shark_description/hook/cmake_prefix_path.sh'
+[1.912s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/shark_description/bin'
+[1.912s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/shark_description/lib/pkgconfig/shark_description.pc'
+[1.913s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/shark_description/lib/python3.10/site-packages'
+[1.913s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/shark_description/bin'
+[1.914s] INFO:colcon.colcon_core.shell:Creating package script '/home/freedom/freedom_ws/src/butia_description/install/shark_description/share/shark_description/package.ps1'
+[1.915s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/freedom/freedom_ws/src/butia_description/install/shark_description/share/shark_description/package.dsv'
+[1.915s] INFO:colcon.colcon_core.shell:Creating package script '/home/freedom/freedom_ws/src/butia_description/install/shark_description/share/shark_description/package.sh'
+[1.917s] INFO:colcon.colcon_core.shell:Creating package script '/home/freedom/freedom_ws/src/butia_description/install/shark_description/share/shark_description/package.bash'
+[1.917s] INFO:colcon.colcon_core.shell:Creating package script '/home/freedom/freedom_ws/src/butia_description/install/shark_description/share/shark_description/package.zsh'
+[1.918s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/freedom/freedom_ws/src/butia_description/install/shark_description/share/colcon-core/packages/shark_description)
+[1.921s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(logistic_description)
+[1.921s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/logistic_description' for CMake module files
+[1.922s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/logistic_description' for CMake config files
+[1.923s] Level 1:colcon.colcon_core.shell:create_environment_hook('logistic_description', 'cmake_prefix_path')
+[1.923s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/freedom/freedom_ws/src/butia_description/install/logistic_description/share/logistic_description/hook/cmake_prefix_path.ps1'
+[1.924s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/freedom/freedom_ws/src/butia_description/install/logistic_description/share/logistic_description/hook/cmake_prefix_path.dsv'
+[1.925s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/freedom/freedom_ws/src/butia_description/install/logistic_description/share/logistic_description/hook/cmake_prefix_path.sh'
+[1.926s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/logistic_description/bin'
+[1.926s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/logistic_description/lib/pkgconfig/logistic_description.pc'
+[1.926s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/logistic_description/lib/python3.10/site-packages'
+[1.927s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/logistic_description/bin'
+[1.927s] INFO:colcon.colcon_core.shell:Creating package script '/home/freedom/freedom_ws/src/butia_description/install/logistic_description/share/logistic_description/package.ps1'
+[1.928s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/freedom/freedom_ws/src/butia_description/install/logistic_description/share/logistic_description/package.dsv'
+[1.929s] INFO:colcon.colcon_core.shell:Creating package script '/home/freedom/freedom_ws/src/butia_description/install/logistic_description/share/logistic_description/package.sh'
+[1.930s] INFO:colcon.colcon_core.shell:Creating package script '/home/freedom/freedom_ws/src/butia_description/install/logistic_description/share/logistic_description/package.bash'
+[1.931s] INFO:colcon.colcon_core.shell:Creating package script '/home/freedom/freedom_ws/src/butia_description/install/logistic_description/share/logistic_description/package.zsh'
+[1.931s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/freedom/freedom_ws/src/butia_description/install/logistic_description/share/colcon-core/packages/logistic_description)
+[1.938s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(sensors_description)
+[1.938s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/sensors_description' for CMake module files
+[1.939s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/sensors_description' for CMake config files
+[1.940s] Level 1:colcon.colcon_core.shell:create_environment_hook('sensors_description', 'cmake_prefix_path')
+[1.940s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/freedom/freedom_ws/src/butia_description/install/sensors_description/share/sensors_description/hook/cmake_prefix_path.ps1'
+[1.941s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/freedom/freedom_ws/src/butia_description/install/sensors_description/share/sensors_description/hook/cmake_prefix_path.dsv'
+[1.942s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/freedom/freedom_ws/src/butia_description/install/sensors_description/share/sensors_description/hook/cmake_prefix_path.sh'
+[1.942s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/sensors_description/bin'
+[1.943s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/sensors_description/lib/pkgconfig/sensors_description.pc'
+[1.943s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/sensors_description/lib/python3.10/site-packages'
+[1.943s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/sensors_description/bin'
+[1.944s] INFO:colcon.colcon_core.shell:Creating package script '/home/freedom/freedom_ws/src/butia_description/install/sensors_description/share/sensors_description/package.ps1'
+[1.944s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/freedom/freedom_ws/src/butia_description/install/sensors_description/share/sensors_description/package.dsv'
+[1.945s] INFO:colcon.colcon_core.shell:Creating package script '/home/freedom/freedom_ws/src/butia_description/install/sensors_description/share/sensors_description/package.sh'
+[1.946s] INFO:colcon.colcon_core.shell:Creating package script '/home/freedom/freedom_ws/src/butia_description/install/sensors_description/share/sensors_description/package.bash'
+[1.947s] INFO:colcon.colcon_core.shell:Creating package script '/home/freedom/freedom_ws/src/butia_description/install/sensors_description/share/sensors_description/package.zsh'
+[1.947s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/freedom/freedom_ws/src/butia_description/install/sensors_description/share/colcon-core/packages/sensors_description)
+[1.950s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(shark_description)
+[1.951s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/shark_description' for CMake module files
+[1.951s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/shark_description' for CMake config files
+[1.952s] Level 1:colcon.colcon_core.shell:create_environment_hook('shark_description', 'cmake_prefix_path')
+[1.952s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/freedom/freedom_ws/src/butia_description/install/shark_description/share/shark_description/hook/cmake_prefix_path.ps1'
+[1.953s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/freedom/freedom_ws/src/butia_description/install/shark_description/share/shark_description/hook/cmake_prefix_path.dsv'
+[1.954s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/freedom/freedom_ws/src/butia_description/install/shark_description/share/shark_description/hook/cmake_prefix_path.sh'
+[1.955s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/shark_description/bin'
+[1.955s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/shark_description/lib/pkgconfig/shark_description.pc'
+[1.955s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/shark_description/lib/python3.10/site-packages'
+[1.956s] Level 1:colcon.colcon_core.environment:checking '/home/freedom/freedom_ws/src/butia_description/install/shark_description/bin'
+[1.956s] INFO:colcon.colcon_core.shell:Creating package script '/home/freedom/freedom_ws/src/butia_description/install/shark_description/share/shark_description/package.ps1'
+[1.957s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/freedom/freedom_ws/src/butia_description/install/shark_description/share/shark_description/package.dsv'
+[1.958s] INFO:colcon.colcon_core.shell:Creating package script '/home/freedom/freedom_ws/src/butia_description/install/shark_description/share/shark_description/package.sh'
+[1.959s] INFO:colcon.colcon_core.shell:Creating package script '/home/freedom/freedom_ws/src/butia_description/install/shark_description/share/shark_description/package.bash'
+[1.959s] INFO:colcon.colcon_core.shell:Creating package script '/home/freedom/freedom_ws/src/butia_description/install/shark_description/share/shark_description/package.zsh'
+[1.960s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/freedom/freedom_ws/src/butia_description/install/shark_description/share/colcon-core/packages/shark_description)
+[1.960s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[1.961s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[1.961s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[1.961s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[1.979s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[1.979s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[1.980s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[2.010s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[2.011s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/freedom/freedom_ws/src/butia_description/install/local_setup.ps1'
+[2.013s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/freedom/freedom_ws/src/butia_description/install/_local_setup_util_ps1.py'
+[2.015s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/freedom/freedom_ws/src/butia_description/install/setup.ps1'
+[2.017s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/freedom/freedom_ws/src/butia_description/install/local_setup.sh'
+[2.017s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/freedom/freedom_ws/src/butia_description/install/_local_setup_util_sh.py'
+[2.018s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/freedom/freedom_ws/src/butia_description/install/setup.sh'
+[2.020s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/freedom/freedom_ws/src/butia_description/install/local_setup.bash'
+[2.020s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/freedom/freedom_ws/src/butia_description/install/setup.bash'
+[2.022s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/freedom/freedom_ws/src/butia_description/install/local_setup.zsh'
+[2.023s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/freedom/freedom_ws/src/butia_description/install/setup.zsh'

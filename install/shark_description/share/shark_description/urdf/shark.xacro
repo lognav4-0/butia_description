@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!-- Basic differential drive mobile base -->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="shark">
+
+  <xacro:include filename="$(find shark_description)/urdf/shark_description.xacro" />
+
+  <!-- Import Rviz colors -->
+  <xacro:include filename="$(find shark_description)/urdf/shark_materials.xacro" />
+
+  <!-- Import diffbot ros2_control description -->
+  <xacro:include filename="$(find shark_description)/ros2_control/shark_ros2_control.xacro" />
+
+</robot>
