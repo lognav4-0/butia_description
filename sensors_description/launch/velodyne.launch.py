@@ -9,6 +9,12 @@ from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
 from launch.conditions import IfCondition
 
+'''
+We added this launch here to be easier to find and change de config files.
+
+TODO: Velodyne URDF available here.
+'''
+
 
 def generate_launch_description():
     # Declare argument for RViz
